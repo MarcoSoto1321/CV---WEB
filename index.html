@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marco Soto | DevOps Infrastructure</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Grid Background -->
+    <div class="grid-bg"></div>
+
+    <!-- Header -->
+    <header>
+      <div class="header-badge">$ devops infrastructure — portfolio</div>
+      <h1>Marco Soto | <span>DevOps Infrastructure</span></h1>
+      <p class="header-sub">
+        Computer Engineering | DevOps, Networking & Security Specialist
+      </p>
+      <div class="tech-stack">
+        <span class="tag">Docker</span>
+        <span class="tag">Jenkins</span>
+        <span class="tag">WireGuard</span>
+        <span class="tag">Nginx</span>
+        <span class="tag">Linux</span>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="tabs">
+      <button class="tab active" data-section="network">
+        <span class="tab-icon">⬡</span>Network
+      </button>
+      <button class="tab" data-section="services">
+        <span class="tab-icon">▦</span>Services
+      </button>
+      <button class="tab" data-section="hardening">
+        <span class="tab-icon">⛨</span>Hardening
+      </button>
+      <button class="tab" data-section="experience">
+        <span class="tab-icon">◈</span>Experience
+      </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Network Section -->
+      <section id="network" class="section active">
+        <div class="section-header">
+          <h2><span class="icon">⬡</span> Network Architecture</h2>
+          <p>Home Lab infrastructure with enterprise-grade networking</p>
+        </div>
+
+        <div class="architecture-diagram">
+          <div class="arch-layer">
+            <div class="arch-label">WAN</div>
+            <div class="arch-block arch-isp">
+              <div class="block-icon">🌐</div>
+              <div class="block-title">Router ISP</div>
+              <div class="block-desc">Port Forwarding → 80, 443</div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer">
+            <div class="arch-label">DMZ</div>
+            <div class="arch-block arch-rpi">
+              <div class="block-icon">🔲</div>
+              <div class="block-title">Raspberry Pi 5</div>
+              <div class="block-desc">Arch Linux ARM • Docker Host</div>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-layer">
+            <div class="arch-label">PROXY</div>
+            <div class="arch-block arch-nginx">
+              <div class="block-icon">⚡</div>
+              <div class="block-title">Nginx Proxy Manager</div>
+              <div class="block-desc">SSL/TLS Termination • Let's Encrypt</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box">
+          <h3>🔗 Network Configuration</h3>
+          <ul>
+            <li>
+              <strong>Connection:</strong> Ethernet (Cat6) for maximum stability
+              and low latency
+            </li>
+            <li>
+              <strong>Dynamic DNS:</strong> DuckDNS for public domain resolution
+            </li>
+            <li>
+              <strong>Reverse Proxy:</strong> Nginx Proxy Manager handles SSL
+              certificates automatically
+            </li>
+            <li>
+              <strong>Traffic Flow:</strong> ISP Router → RPi5 → NPM → Docker
+              Services
+            </li>
+          </ul>
+        </div>
+
+        <div class="cmd">
+          <div class="cmd-label">Network Topology</div>
+          <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+          <code>
+            <span class="comment"># Traffic Flow Architecture</span>
+            <span class="output">Internet</span> →
+            <span class="keyword">ISP Router</span> (NAT/Port Forward) →
+            <span class="keyword">Raspberry Pi 5</span> (192.168.1.100) →
+            <span class="keyword">Nginx Proxy Manager</span> (:80, :443) →
+            <span class="keyword">Docker Services</span> (Internal Network)
+          </code>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section">
+        <div class="section-header">
+          <h2><span class="icon">▦</span> Docker Services</h2>
+          <p>Self-hosted microservices with container orchestration</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Vaultwarden Card -->
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon vault-icon">🔐</div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>Vaultwarden</h3>
+            <p class="card-desc">
+              Self-hosted Bitwarden server for secure password management
+            </p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">vaultwarden/server:latest</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Volume</span>
+                <span class="spec-value">/vw-data:/data</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Port</span>
+                <span class="spec-value">8080:80</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Persistent Storage</span>
+              <span class="tag">SSL Enabled</span>
+            </div>
+          </div>
+
+          <!-- Portfolio Card -->
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon portfolio-icon">📁</div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>Portfolio</h3>
+            <p class="card-desc">
+              Personal portfolio and infrastructure documentation site
+            </p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">nginx:alpine</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Volume</span>
+                <span class="spec-value">/portfolio:/usr/share/nginx/html</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Port</span>
+                <span class="spec-value">8081:80</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Static Site</span>
+              <span class="tag">Nginx</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cmd">
+          <div class="cmd-label">docker-compose.yml</div>
+          <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
+          <code>
+            <span class="keyword">version:</span>
+            <span class="option">'3.8'</span>
+            <span class="keyword">services:</span>
+            <span class="prompt">vaultwarden:</span>
+            <span class="keyword">image:</span> vaultwarden/server:latest
+            <span class="keyword">volumes:</span>
+            - <span class="option">vw-data:/data</span>
+            <span class="keyword">restart:</span> unless-stopped
+
+            <span class="prompt">portfolio:</span>
+            <span class="keyword">image:</span> nginx:alpine
+            <span class="keyword">volumes:</span>
+            - <span class="option">./portfolio:/usr/share/nginx/html</span>
+            <span class="keyword">restart:</span> unless-stopped
+          </code>
+        </div>
+      </section>
+
+      <!-- Hardening Section -->
+      <section id="hardening" class="section">
+        <div class="section-header">
+          <h2><span class="icon">⛨</span> Security Hardening</h2>
+          <p>
+            Multi-layer security implementation for infrastructure protection
+          </p>
+        </div>
+
+        <div class="security-list">
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>SSH Key-only Auth</h4>
+              <p>
+                Password authentication disabled. Access restricted to Ed25519
+                key pairs with passphrase protection.
+              </p>
+              <div class="cmd inline">
+                <code
+                  ><span class="prompt">$</span>
+                  <span class="keyword">ssh-keygen</span>
+                  <span class="option">-t ed25519 -a 100</span></code
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>WireGuard VPN for Remote Management</h4>
+              <p>
+                Encrypted tunnel for secure remote administration. No services
+                exposed directly to internet except through VPN.
+              </p>
+              <div class="cmd inline">
+                <code
+                  ><span class="prompt">$</span>
+                  <span class="keyword">wg-quick</span> up
+                  <span class="option">wg0</span></code
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>Docker Network Isolation</h4>
+              <p>
+                Custom bridge networks ensure container isolation. Services
+                communicate only through defined networks.
+              </p>
+              <div class="cmd inline">
+                <code
+                  ><span class="prompt">$</span>
+                  <span class="keyword">docker network</span> create
+                  <span class="option">--internal secure_net</span></code
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>Firewall Rules (iptables/nftables)</h4>
+              <p>
+                Strict ingress/egress rules. Default deny policy with explicit
+                allow rules for required services.
+              </p>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>Fail2Ban Protection</h4>
+              <p>
+                Automatic IP blocking after failed authentication attempts.
+                Protects SSH and web services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="section">
+        <div class="section-header">
+          <h2><span class="icon">◈</span> Experience & Certifications</h2>
+          <p>
+            Professional background in QA Automation and Network Engineering
+          </p>
+        </div>
+
+        <div class="experience-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h4>QA Automation Intern</h4>
+                <span class="timeline-company">CTIN • Mexico City</span>
+              </div>
+              <span class="timeline-date">May 2025 – Nov 2025</span>
+              <p>
+                Integration of automated test suites in Jenkins CI/CD pipelines
+                for Claro Drive application. Management of test environments
+                across physical devices and web platforms.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Jenkins</span>
+                <span class="tag">Java</span>
+                <span class="tag">Appium</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Git</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h4>Social Service Intern</h4>
+                <span class="timeline-company"
+                  >Microsoft AI Laboratory, UNAM</span
+                >
+              </div>
+              <span class="timeline-date">June 2024 – Dec 2024</span>
+              <p>
+                Network monitoring and maintenance for campus LAN. Internal
+                software development and basic perimeter equipment
+                administration.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Networking</span>
+                <span class="tag">Software Dev</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="certs-section">
+          <h3>🏆 Certifications</h3>
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-badge cisco">CCNP</div>
+              <div class="cert-info">
+                <h4>CCNP Security (In Progress)</h4>
+                <p>ENCOR & ENARSI Diploma</p>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-badge nvidia">NVIDIA</div>
+              <div class="cert-info">
+                <h4>NVIDIA DLI</h4>
+                <p>Fundamentals of Deep Learning • Adding Knowledge to LLMs</p>
+              </div>
+            </div>
+            <div class="cert-card">
+              <div class="cert-badge certiprof">CERT</div>
+              <div class="cert-info">
+                <h4>Certiprof</h4>
+                <p>Cybersecurity Awareness (CAPC) • Remote Work Professional</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="education-box">
+          <h3>🎓 Education</h3>
+          <div class="edu-content">
+            <h4>Computer Engineering</h4>
+            <p>Faculty of Engineering, UNAM • 2021 - 2025</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="system-status">
+          <span class="status-dot"></span>
+          <span class="status-text">System Status: Optimal</span>
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/MarcoSoto1321" target="_blank">GitHub</a>
+          <a href="mailto:marcosoto1321p@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

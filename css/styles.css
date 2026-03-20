@@ -731,6 +731,22 @@ main {
   border: 1px solid rgba(0, 188, 212, 0.3);
   color: #00bcd4;
 }
+.header-description {
+  max-width: 700px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+}
+
+.header-description p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.header-description strong {
+  color: var(--accent); /* Para que resalten los conceptos clave */
+}
 
 /* Ajuste general para íconos en experiencia (reemplaza emojis) */
 .timeline-marker-icon {

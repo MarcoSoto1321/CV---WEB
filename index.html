@@ -12,10 +12,8 @@
     <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
-    <!-- Grid Background -->
     <div class="grid-bg"></div>
 
-    <!-- Header -->
     <header>
       <div class="header-badge">$ devops infrastructure — portfolio</div>
       <h1>Marco Soto | <span>DevOps Infrastructure</span></h1>
@@ -29,9 +27,14 @@
         <span class="tag">Nginx</span>
         <span class="tag">Linux</span>
       </div>
+      <div class="header-description">
+        <p>
+            Computer Engineer passionate about <strong>automation</strong> and system <strong>hardening</strong>. 
+            Specialized in Docker orchestration, Continuous Deployment (CI/CD), and scalable network security.
+        </p>
+    </div>
     </header>
 
-    <!-- Navigation Tabs -->
     <nav class="tabs">
       <button class="tab active" data-section="network">
         <span class="tab-icon">⬡</span>Network
@@ -47,9 +50,7 @@
       </button>
     </nav>
 
-    <!-- Main Content -->
     <main>
-      <!-- Network Section -->
       <section id="network" class="section active">
         <div class="section-header">
           <h2><span class="icon">⬡</span> Network Architecture</h2>
@@ -61,7 +62,7 @@
             <div class="arch-label">WAN</div>
             <div class="arch-block arch-isp">
               <div class="block-icon"><i data-lucide="network"></i></div>
-              <div class="block-title">Router ISP</div>
+              <div class="block-title">ISP Router</div>
               <div class="block-desc">Port Forwarding → 80, 443</div>
             </div>
           </div>
@@ -120,7 +121,6 @@
         </div>
       </section>
 
-      <!-- Services Section -->
       <section id="services" class="section">
         <div class="section-header">
           <h2><span class="icon">▦</span> Docker Services</h2>
@@ -128,7 +128,6 @@
         </div>
 
         <div class="services-grid">
-          <!-- WG - EASY -->
           <div class="service-card">
             <div class="card-header">
               <div class="card-icon vpn-icon"><i data-lucide="earth-lock"></i> </div>
@@ -136,7 +135,7 @@
             </div>
             <h3>WireGuard</h3>
             <p class="card-desc">
-              Self-hosted VPN server for secure connection
+              Self-hosted VPN server for secure remote connection.
             </p>
             <div class="card-specs">
               <div class="spec">
@@ -150,9 +149,9 @@
             </div>
             <div class="card-tags">
               <span class="tag">Persistent Storage</span>
-              <span class="tag">Splited Network</span>
+              <span class="tag">Split Tunneling</span>
               <span class="tag">VPN</span>
-              <span class="tag">AD-block</span>
+              <span class="tag">Ad-block</span>
             </div>
           </div>
 
@@ -162,7 +161,7 @@
               <div class="card-status running">Running</div>
             </div>
             <h3>Pi-hole</h3>
-            <p class="card-desc">Sinkhole de DNS para bloqueo de publicidad y rastreadores a nivel de red local.</p>
+            <p class="card-desc">Network-wide DNS sinkhole for blocking ads and trackers at the LAN level.</p>
             <div class="card-specs">
               <div class="spec">
                 <span class="spec-label">Image</span>
@@ -185,7 +184,7 @@
               <div class="card-status running">Running</div>
             </div>
             <h3>Nginx Proxy Manager</h3>
-            <p class="card-desc">Exposición segura de servicios web con terminación SSL/TLS automática.</p>
+            <p class="card-desc">Secure web service exposure with automated SSL/TLS termination.</p>
             <div class="card-specs">
               <div class="spec">
                 <span class="spec-label">Image</span>
@@ -208,7 +207,7 @@
               <div class="card-status running">Running</div>
             </div>
             <h3>DuckDNS</h3>
-            <p class="card-desc">Cliente de DNS dinámico para mantener la resolución de dominio hacia la IP WAN.</p>
+            <p class="card-desc">Dynamic DNS client to maintain domain resolution for the WAN IP.</p>
             <div class="card-specs">
               <div class="spec">
                 <span class="spec-label">Image</span>
@@ -225,7 +224,6 @@
             </div>
           </div>
 
-          <!-- Vaultwarden Card -->
           <div class="service-card">
             <div class="card-header">
               <div class="card-icon vault-icon"><i data-lucide="user-key"></i></div>
@@ -233,7 +231,7 @@
             </div>
             <h3>Vaultwarden</h3>
             <p class="card-desc">
-              Self-hosted Bitwarden server for secure password management
+              Self-hosted Bitwarden server for secure, encrypted password management.
             </p>
             <div class="card-specs">
               <div class="spec">
@@ -261,7 +259,7 @@
               <div class="card-status exited">Exited</div>
             </div>
             <h3>Watchtower</h3>
-            <p class="card-desc">Automatización del ciclo de vida de imágenes. Actualiza contenedores automáticamente.</p>
+            <p class="card-desc">Container lifecycle automation. Automatically updates running images to latest.</p>
             <div class="card-specs">
               <div class="spec">
                 <span class="spec-label">Image</span>
@@ -278,7 +276,6 @@
             </div>
           </div>
 
-          <!-- Portfolio Card -->
           <div class="service-card">
             <div class="card-header">
               <div class="card-icon portfolio-icon"><i data-lucide="file-user"></i>  </div>
@@ -286,7 +283,7 @@
             </div>
             <h3>Portfolio</h3>
             <p class="card-desc">
-              Personal portfolio and infrastructure documentation site
+              Personal portfolio and infrastructure documentation site.
             </p>
             <div class="card-specs">
               <div class="spec">
@@ -314,7 +311,7 @@
               <div class="card-status running">Running</div>
             </div>
             <h3>Docker Controller Bot</h3>
-            <p class="card-desc">Bot de Telegram para el monitoreo y control remoto de contenedores vía API.</p>
+            <p class="card-desc">Telegram bot for remote monitoring and container control via API.</p>
             <div class="card-specs">
               <div class="spec">
                 <span class="spec-label">Image</span>
@@ -331,8 +328,6 @@
             </div>
           </div>
         </div>
-
-        
 
         <div class="cmd">
           <div class="cmd-label">docker-compose.yml</div>
@@ -389,13 +384,10 @@
         </div>
       </section>
 
-      <!-- Hardening Section -->
       <section id="hardening" class="section">
         <div class="section-header">
           <h2><span class="icon">⛨</span> Security Hardening</h2>
-          <p>
-            Multi-layer security implementation for infrastructure protection
-          </p>
+          <p>Multi-layer security implementation for infrastructure protection</p>
         </div>
 
         <div class="security-list">
@@ -403,10 +395,7 @@
             <div class="security-icon secure">✓</div>
             <div class="security-content">
               <h4>SSH Key-only Auth</h4>
-              <p>
-                Password authentication disabled. Access restricted to Ed25519
-                key pairs with passphrase protection.
-              </p>
+              <p>Password authentication disabled. Access restricted to Ed25519 key pairs with passphrase protection.</p>
               <div class="cmd inline">
                 <code><span class="prompt">$</span> <span class="keyword">ssh-keygen</span> <span class="option">-t ed25519 -a 100</span></code>
               </div>
@@ -417,13 +406,7 @@
             <div class="security-icon secure">✓</div>
             <div class="security-content">
               <h4>WireGuard VPN for Remote Management</h4>
-              <p>
-                Encrypted tunnel for secure remote administration. No services
-                exposed directly to internet except through VPN.
-              </p>
-              <div class="cmd inline">
-                <code><span class="prompt">$</span> <span class="keyword">wg-quick</span> up <span class="option">wg0</span></code>
-              </div>
+              <p>Encrypted tunnel for secure remote administration. Zero services exposed directly to the internet except via VPN.</p>
             </div>
           </div>
 
@@ -431,48 +414,15 @@
             <div class="security-icon secure">✓</div>
             <div class="security-content">
               <h4>Docker Network Isolation</h4>
-              <p>
-                Custom bridge networks ensure container isolation. Services
-                communicate only through defined networks.
-              </p>
-              <div class="cmd inline">
-                <code><span class="prompt">$</span> <span class="keyword">docker network</span> create <span class="option">--internal secure_net</span></code>
-              </div>
+              <p>Custom bridge networks ensure container isolation. Services communicate only through defined internal networks.</p>
             </div>
           </div>
 
           <div class="security-item">
             <div class="security-icon secure">✓</div>
             <div class="security-content">
-              <h4>Firewall Rules (iptables/nftables)</h4>
-              <p>
-                Strict ingress/egress rules. Default deny policy with explicit
-                allow rules for required services.
-              </p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>Fail2Ban Protection</h4>
-              <p>
-                Automatic IP blocking after failed authentication attempts.
-                Protects SSH and web services.
-              </p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>Automated Image Updates (Watchtower)</h4>
-              <p>
-                Mantenimiento automatizado del ciclo de vida de los contenedores. Las imágenes se actualizan a su versión más reciente de forma periódica, reduciendo vulnerabilidades.
-              </p>
-              <div class="cmd inline">
-                <code><span class="prompt">$</span> <span class="keyword">docker</span> logs <span class="option">watchtower</span></code>
-              </div>
+              <h4>Automated Updates (Watchtower)</h4>
+              <p>Automated maintenance of container lifecycles. Images are updated to latest patches, reducing vulnerability windows.</p>
             </div>
           </div>
 
@@ -480,24 +430,16 @@
             <div class="security-icon secure">✓</div>
             <div class="security-content">
               <h4>Intrusion Prevention (Fail2Ban)</h4>
-              <p>
-                Monitoreo proactivo de logs para detectar y bloquear automáticamente direcciones IP que presenten intentos de autenticación fallidos o comportamientos maliciosos.
-              </p>
-              <div class="cmd inline">
-                <code><span class="prompt">#</span> <span class="keyword">fail2ban-client</span> status <span class="option">sshd</span></code>
-              </div>
+              <p>Proactive log monitoring to detect and automatically block malicious IPs after failed authentication attempts.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Experience Section -->
       <section id="experience" class="section">
         <div class="section-header">
           <h2><span class="icon">◈</span> Experience & Certifications</h2>
-          <p>
-            Professional background in QA Automation and Network Engineering
-          </p>
+          <p>Professional background in QA Automation and Network Engineering</p>
         </div>
 
         <div class="experience-timeline">
@@ -509,18 +451,7 @@
                 <span class="timeline-company">CTIN • Mexico City</span>
               </div>
               <span class="timeline-date">May 2025 – Nov 2025</span>
-              <p>
-                Integration of automated test suites in Jenkins CI/CD pipelines
-                for Claro Drive application. Management of test environments
-                across physical devices and web platforms.
-              </p>
-              <div class="timeline-tags">
-                <span class="tag">Jenkins</span>
-                <span class="tag">Java</span>
-                <span class="tag">Appium</span>
-                <span class="tag">Selenium</span>
-                <span class="tag">Git</span>
-              </div>
+              <p>Integrated automated test suites into Jenkins CI/CD pipelines. Managed test environments across physical devices and web platforms.</p>
             </div>
           </div>
 
@@ -529,41 +460,22 @@
             <div class="timeline-content">
               <div class="timeline-header">
                 <h4>Social Service Intern</h4>
-                <span class="timeline-company"
-                  >Microsoft AI Laboratory, UNAM</span
-                >
+                <span class="timeline-company">Microsoft AI Laboratory, UNAM</span>
               </div>
               <span class="timeline-date">June 2024 – Dec 2024</span>
-              <p>
-                Network monitoring and maintenance for campus LAN. Internal
-                software development and basic perimeter equipment
-                administration.
-              </p>
-              <div class="timeline-tags">
-                <span class="tag">Networking</span>
-                <span class="tag">Software Dev</span>
-              </div>
+              <p>Network monitoring and maintenance for campus LAN. Internal software development and perimeter equipment administration.</p>
             </div>
           </div>
         </div>
 
         <div class="certs-section">
-          <h3><i data-lucide="award"></i>   Certifications</h3>
+          <h3><i data-lucide="award"></i> Certifications</h3>
           <div class="certs-grid">
-            <!--
-            <div class="cert-card">
-              <div class="cert-badge cisco-badge">CCNP</div>
-              <div class="cert-info">
-                <h4>CCNP Security (In Progress)</h4>
-                <p>ENCOR & ENARSI Diploma</p>
-              </div>
-            </div>
-            -->
             <div class="cert-card">
               <div class="cert-badge nvidia">NVIDIA</div>
               <div class="cert-info">
                 <h4>NVIDIA DLI</h4>
-                <p>Fundamentals of Deep Learning • Adding Knowledge to LLMs</p>
+                <p>Fundamentals of Deep Learning • Knowledge Retrieval in LLMs</p>
               </div>
             </div>
             <div class="cert-card">
@@ -576,8 +488,8 @@
             <div class="cert-card">
               <div class="cert-badge scrum-badge">SCRM</div>
               <div class="cert-info">
-                <h4>SCRUM STUDY</h4>
-                <p>SCRUM Fundamentlas</p>
+                <h4>Scrum Study</h4>
+                <p>Scrum Fundamentals Certified</p>
               </div>
             </div>
           </div>
@@ -586,27 +498,27 @@
         <div class="education-box">
           <h3><i data-lucide="graduation-cap"></i> Education</h3>
           <div class="edu-content">
-            <h4>Computer Engineering</h4>
-            <p>Faculty of Engineering, UNAM • 2021 - 2025</p>
+            <h4>B.S. in Computer Engineering</h4>
+            <p>Faculty of Engineering, UNAM • 2021 - 2026</p>
           </div>
         </div>
 
         <div class="education-box">
-          <h3><i data-lucide="graduation-cap"></i> Certification Courses</h3>
+          <h3><i data-lucide="book-open"></i> Certification Training</h3>
           <div class="edu-content">
-            <h4>CCNA - Networking</h4>
+            <h4>Cisco CCNA - Routing & Switching</h4>
             <p>Faculty of Engineering, UNAM • 2024</p>
           </div>
         </div>
 
         <div class="education-box">
-          <h3><i data-lucide="graduation-cap"></i> Diplomas</h3>
+          <h3><i data-lucide="scroll"></i> Professional Diplomas</h3>
           <div class="edu-content">
-            <h4>CCNP - ENCORE</h4>
+            <h4>CCNP Enterprise - ENCORE</h4>
             <p>Faculty of Engineering, UNAM • 2025</p>
           </div>
           <div class="edu-content">
-            <h4>CCNP - SECURITY</h4>
+            <h4>CCNP Security</h4>
             <p>Faculty of Engineering, UNAM • In Progress</p>
           </div>
         </div>
@@ -614,7 +526,6 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer>
       <div class="footer-content">
         <div class="system-status">
@@ -629,5 +540,8 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
   </body>
 </html>

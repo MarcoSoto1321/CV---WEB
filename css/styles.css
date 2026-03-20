@@ -718,6 +718,27 @@ main {
   letter-spacing: 0.05em;
 }
 
+/* Scrum Study - Color Naranja Brillante (Agilidad) */
+.scrum-badge {
+  background: rgba(255, 87, 34, 0.1);
+  border: 1px solid rgba(255, 87, 34, 0.3);
+  color: #ff5722;
+}
+
+/* Cisco / CCNP - Color Azul Marino (Redes) */
+.cisco-badge {
+  background: rgba(0, 188, 212, 0.1);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  color: #00bcd4;
+}
+
+/* Ajuste general para íconos en experiencia (reemplaza emojis) */
+.timeline-marker-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+
 .cert-badge.cisco {
   background: rgba(0, 212, 170, 0.1);
   border: 1px solid rgba(0, 212, 170, 0.3);

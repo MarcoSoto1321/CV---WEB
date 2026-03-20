@@ -342,7 +342,8 @@ main {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.8rem;
   line-height: 1.8;
-  white-space: pre;
+  white-space: pre-wrap; /* Cambiado de 'pre' para mejor manejo de espacios */
+  text-align: left;      /* Asegura el alineado a la izquierda */
 }
 
 .cmd .prompt {
@@ -363,7 +364,9 @@ main {
 }
 
 .cmd.inline {
-  display: inline-block;
+  display: flex;         /* Cambiado para mejor control de alineación */
+  align-items: center;
+  justify-content: flex-start; /* Alinea el contenido al inicio */
   padding: 8px 12px;
   margin: 8px 0;
 }
@@ -429,14 +432,60 @@ main {
   font-size: 1.5rem;
 }
 
+/* Vaultwarden - Turquesa/Cian (Identidad original) */
 .vault-icon {
   background: rgba(0, 212, 170, 0.1);
   border: 1px solid rgba(0, 212, 170, 0.3);
+  color: #00d4aa; /* Agregado para igualar el estilo */
 }
 
+/* Portfolio - Azul Lavanda/Indigo (Identidad original) */
 .portfolio-icon {
   background: rgba(129, 140, 248, 0.1);
   border: 1px solid rgba(129, 140, 248, 0.3);
+  color: #818cf8; /* Agregado para igualar el estilo */
+}
+
+/* Nginx Proxy Manager - Verde Esmeralda (Seguridad/Proxy) */
+.nginx-icon {
+  background: rgba(0, 150, 136, 0.1);
+  border: 1px solid rgba(0, 150, 136, 0.3);
+  color: #009688;
+}
+
+/* Pi-hole - Rojo Frambuesa (Bloqueo/Escudo) */
+.pihole-icon {
+  background: rgba(233, 30, 99, 0.1);
+  border: 1px solid rgba(233, 30, 99, 0.3);
+  color: #e91e63;
+}
+
+/* DuckDNS - Amarillo/Dorado (Web/DNS) */
+.duck-icon {
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+}
+
+/* Watchtower - Azul Cian (Automatización) */
+.watchtower-icon {
+  background: rgba(0, 188, 212, 0.1);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  color: #00bcd4;
+}
+
+/* Telegram Bot - Azul Avión (Comunicación) */
+.bot-icon {
+  background: rgba(33, 150, 243, 0.1);
+  border: 1px solid rgba(33, 150, 243, 0.3);
+  color: #2196f3;
+}
+
+/* WireGuard - Blanco/Gris Azulado (Túnel/Red) */
+.vpn-icon {
+  background: rgba(200, 212, 230, 0.1);
+  border: 1px solid rgba(200, 212, 230, 0.3);
+  color: #c8d4e6;
 }
 
 .card-status {

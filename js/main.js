@@ -161,3 +161,6 @@ document.addEventListener("keydown", (e) => {
 
 // Make copyToClipboard available globally
 window.copyToClipboard = copyToClipboard;
+
+//Render Icons
+lucide.createIcons();

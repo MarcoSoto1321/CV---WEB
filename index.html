@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <!-- Grid Background -->
@@ -127,10 +128,107 @@
         </div>
 
         <div class="services-grid">
+          <!-- WG - EASY -->
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon vpn-icon"><i data-lucide="earth-lock"></i> </div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>WireGuard</h3>
+            <p class="card-desc">
+              Self-hosted VPN server for secure connection
+            </p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">ghcr.io/wg-easy/wg-easy</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Port</span>
+                <span class="spec-value">REDACTED (UDP Tunnel)</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Persistent Storage</span>
+              <span class="tag">Splited Network</span>
+              <span class="tag">VPN</span>
+              <span class="tag">AD-block</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon pihole-icon"><i data-lucide="layout-grid"></i></div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>Pi-hole</h3>
+            <p class="card-desc">Sinkhole de DNS para bloqueo de publicidad y rastreadores a nivel de red local.</p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">pihole/pihole</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Port</span>
+                <span class="spec-value">53 (DNS Internal)</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Ad-Block</span>
+              <span class="tag">Privacy</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon nginx-icon"><i data-lucide="shield-check"></i></div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>Nginx Proxy Manager</h3>
+            <p class="card-desc">Exposición segura de servicios web con terminación SSL/TLS automática.</p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">jc21/nginx-proxy-manager:latest</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Port</span>
+                <span class="spec-value">80, 443 (Standard Web)</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Reverse Proxy</span>
+              <span class="tag">Let's Encrypt</span>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon duck-icon"><i data-lucide="globe"></i></div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>DuckDNS</h3>
+            <p class="card-desc">Cliente de DNS dinámico para mantener la resolución de dominio hacia la IP WAN.</p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">linuxserver/duckdns</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Status</span>
+                <span class="spec-value">Active Update</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">DDNS</span>
+              <span class="tag">Network Edge</span>
+            </div>
+          </div>
+
           <!-- Vaultwarden Card -->
           <div class="service-card">
             <div class="card-header">
-              <div class="card-icon vault-icon">🔐</div>
+              <div class="card-icon vault-icon"><i data-lucide="user-key"></i></div>
               <div class="card-status running">Running</div>
             </div>
             <h3>Vaultwarden</h3>
@@ -157,10 +255,33 @@
             </div>
           </div>
 
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon watchtower-icon"><i data-lucide="refresh-cw"></i></div>
+              <div class="card-status exited">Exited</div>
+            </div>
+            <h3>Watchtower</h3>
+            <p class="card-desc">Automatización del ciclo de vida de imágenes. Actualiza contenedores automáticamente.</p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">containrrr/watchtower</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Mode</span>
+                <span class="spec-value">Periodic Scan</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Automation</span>
+              <span class="tag">CI/CD Ops</span>
+            </div>
+          </div>
+
           <!-- Portfolio Card -->
           <div class="service-card">
             <div class="card-header">
-              <div class="card-icon portfolio-icon">📁</div>
+              <div class="card-icon portfolio-icon"><i data-lucide="file-user"></i>  </div>
               <div class="card-status running">Running</div>
             </div>
             <h3>Portfolio</h3>
@@ -186,26 +307,84 @@
               <span class="tag">Nginx</span>
             </div>
           </div>
+
+          <div class="service-card">
+            <div class="card-header">
+              <div class="card-icon bot-icon"><i data-lucide="message-square"></i></div>
+              <div class="card-status running">Running</div>
+            </div>
+            <h3>Docker Controller Bot</h3>
+            <p class="card-desc">Bot de Telegram para el monitoreo y control remoto de contenedores vía API.</p>
+            <div class="card-specs">
+              <div class="spec">
+                <span class="spec-label">Image</span>
+                <span class="spec-value">dgongut/docker-controller-bot:latest</span>
+              </div>
+              <div class="spec">
+                <span class="spec-label">Status</span>
+                <span class="spec-value">Healthy</span>
+              </div>
+            </div>
+            <div class="card-tags">
+              <span class="tag">Monitoring</span>
+              <span class="tag">Telegram API</span>
+            </div>
+          </div>
         </div>
+
+        
 
         <div class="cmd">
           <div class="cmd-label">docker-compose.yml</div>
           <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
           <code>
-            <span class="keyword">version:</span>
-            <span class="option">'3.8'</span>
-            <span class="keyword">services:</span>
-            <span class="prompt">vaultwarden:</span>
-            <span class="keyword">image:</span> vaultwarden/server:latest
-            <span class="keyword">volumes:</span>
-            - <span class="option">vw-data:/data</span>
-            <span class="keyword">restart:</span> unless-stopped
+            <span class="keyword">version:</span> <span class="option">'3.8'</span>
 
-            <span class="prompt">portfolio:</span>
-            <span class="keyword">image:</span> nginx:alpine
+            <span class="keyword">services:</span>
+              <span class="prompt">nginx-proxy-manager:</span>
+                <span class="keyword">image:</span> jc21/nginx-proxy-manager:latest
+                <span class="keyword">ports:</span>
+                  - <span class="option">"80:80"</span>
+                  - <span class="option">"443:443"</span>
+                <span class="keyword">volumes:</span>
+                  - <span class="option">./npm/data:/data</span>
+                  - <span class="option">./npm/letsencrypt:/etc/letsencrypt</span>
+                <span class="keyword">restart:</span> unless-stopped
+
+              <span class="prompt">wg-easy:</span>
+                <span class="keyword">image:</span> ghcr.io/wg-easy/wg-easy
+                <span class="keyword">environment:</span>
+                  - <span class="option">WG_HOST=tu-dominio.duckdns.org</span>
+                <span class="keyword">volumes:</span>
+                  - <span class="option">./wireguard:/etc/wireguard</span>
+                <span class="keyword">restart:</span> unless-stopped
+
+              <span class="prompt">pihole:</span>
+                <span class="keyword">image:</span> pihole/pihole:latest
+                <span class="keyword">ports:</span>
+                  - <span class="option">"53:53/tcp"</span>
+                  - <span class="option">"53:53/udp"</span>
+                <span class="keyword">restart:</span> unless-stopped
+
+              <span class="prompt">vaultwarden:</span>
+                <span class="keyword">image:</span> vaultwarden/server:latest
+                <span class="keyword">volumes:</span>
+                  - <span class="option">vw-data:/data</span>
+                <span class="keyword">restart:</span> unless-stopped
+
+              <span class="prompt">portfolio:</span>
+                <span class="keyword">image:</span> nginx:alpine
+                <span class="keyword">volumes:</span>
+                  - <span class="option">./portfolio:/usr/share/nginx/html</span>
+                <span class="keyword">restart:</span> unless-stopped
+
+              <span class="prompt">watchtower:</span>
+                <span class="keyword">image:</span> containrrr/watchtower
+                <span class="keyword">volumes:</span>
+                  - <span class="option">/var/run/docker.sock:/var/run/docker.sock</span>
+
             <span class="keyword">volumes:</span>
-            - <span class="option">./portfolio:/usr/share/nginx/html</span>
-            <span class="keyword">restart:</span> unless-stopped
+              <span class="prompt">vw-data:</span>
           </code>
         </div>
       </section>
@@ -229,11 +408,7 @@
                 key pairs with passphrase protection.
               </p>
               <div class="cmd inline">
-                <code
-                  ><span class="prompt">$</span>
-                  <span class="keyword">ssh-keygen</span>
-                  <span class="option">-t ed25519 -a 100</span></code
-                >
+                <code><span class="prompt">$</span> <span class="keyword">ssh-keygen</span> <span class="option">-t ed25519 -a 100</span></code>
               </div>
             </div>
           </div>
@@ -247,11 +422,7 @@
                 exposed directly to internet except through VPN.
               </p>
               <div class="cmd inline">
-                <code
-                  ><span class="prompt">$</span>
-                  <span class="keyword">wg-quick</span> up
-                  <span class="option">wg0</span></code
-                >
+                <code><span class="prompt">$</span> <span class="keyword">wg-quick</span> up <span class="option">wg0</span></code>
               </div>
             </div>
           </div>
@@ -265,11 +436,7 @@
                 communicate only through defined networks.
               </p>
               <div class="cmd inline">
-                <code
-                  ><span class="prompt">$</span>
-                  <span class="keyword">docker network</span> create
-                  <span class="option">--internal secure_net</span></code
-                >
+                <code><span class="prompt">$</span> <span class="keyword">docker network</span> create <span class="option">--internal secure_net</span></code>
               </div>
             </div>
           </div>
@@ -293,6 +460,32 @@
                 Automatic IP blocking after failed authentication attempts.
                 Protects SSH and web services.
               </p>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>Automated Image Updates (Watchtower)</h4>
+              <p>
+                Mantenimiento automatizado del ciclo de vida de los contenedores. Las imágenes se actualizan a su versión más reciente de forma periódica, reduciendo vulnerabilidades.
+              </p>
+              <div class="cmd inline">
+                <code><span class="prompt">$</span> <span class="keyword">docker</span> logs <span class="option">watchtower</span></code>
+              </div>
+            </div>
+          </div>
+
+          <div class="security-item">
+            <div class="security-icon secure">✓</div>
+            <div class="security-content">
+              <h4>Intrusion Prevention (Fail2Ban)</h4>
+              <p>
+                Monitoreo proactivo de logs para detectar y bloquear automáticamente direcciones IP que presenten intentos de autenticación fallidos o comportamientos maliciosos.
+              </p>
+              <div class="cmd inline">
+                <code><span class="prompt">#</span> <span class="keyword">fail2ban-client</span> status <span class="option">sshd</span></code>
+              </div>
             </div>
           </div>
         </div>

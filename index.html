@@ -3,471 +3,227 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Marco Soto | DevOps Infrastructure</title>
+    <title>Marco Soto | DevOps & Infrastructure Engineer</title>
     <link
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
     <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-  <link rel="manifest" href="/favicon/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
   </head>
   <body>
     <div class="grid-bg"></div>
 
+    <!-- ============ HEADER / HERO ============ -->
     <header>
-      <div class="header-badge">$ devops infrastructure — portfolio</div>
-      <h1>Marco Soto | <span>DevOps Infrastructure</span></h1>
+      <div class="header-badge">$ whoami — devops engineer</div>
+      <h1>Marco Soto <span>/ DevOps &amp; Infrastructure</span></h1>
       <p class="header-sub">
-        Computer Engineering | DevOps, Networking & Security Specialist
+        Computer Engineer · Kubernetes · CI/CD · Network Security
       </p>
-      <div class="tech-stack">
-        <span class="tag">Docker</span>
-        <span class="tag">Jenkins</span>
-        <span class="tag">WireGuard</span>
-        <span class="tag">Nginx</span>
-        <span class="tag">Linux</span>
-      </div>
+
       <div class="header-description">
         <p>
-            Computer Engineer passionate about <strong>automation</strong> and system <strong>hardening</strong>. 
-            Specialized in Docker orchestration, Continuous Deployment (CI/CD), and scalable network security.
+          Computer Engineer focused on <strong>automation</strong>, container
+          <strong>orchestration</strong>, and system <strong>hardening</strong>.
+          I build and operate self-hosted infrastructure on Kubernetes with
+          secure, automated networking.
         </p>
-    </div>
+      </div>
+
+      <!-- Quick stats -->
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-value">2+</span>
+          <span class="stat-label">Years hands-on</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">8</span>
+          <span class="stat-label">Services in prod</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">3</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value">K8s</span>
+          <span class="stat-label">Orchestration</span>
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="cta-row">
+        <a class="cta cta-primary" href="assets/marco-soto-cv.pdf" download>
+          <i data-lucide="download"></i> Download CV
+        </a>
+        <a class="cta" href="https://github.com/MarcoSoto1321" target="_blank">
+          <i data-lucide="github"></i> GitHub
+        </a>
+        <a class="cta" href="https://www.linkedin.com/in/" target="_blank">
+          <i data-lucide="linkedin"></i> LinkedIn
+        </a>
+        <a class="cta" href="mailto:marcosoto1321p@gmail.com">
+          <i data-lucide="mail"></i> Email
+        </a>
+      </div>
     </header>
 
+    <!-- ============ TABS ============ -->
     <nav class="tabs">
-      <button class="tab active" data-section="network">
-        <span class="tab-icon">⬡</span>Network
+      <button class="tab active" data-section="profile">
+        <span class="tab-icon"><i data-lucide="terminal"></i></span>Profile
       </button>
-      <button class="tab" data-section="services">
-        <span class="tab-icon">▦</span>Services
-      </button>
-      <button class="tab" data-section="hardening">
-        <span class="tab-icon">⛨</span>Hardening
+      <button class="tab" data-section="education">
+        <span class="tab-icon"><i data-lucide="graduation-cap"></i></span
+        >Education
       </button>
       <button class="tab" data-section="experience">
-        <span class="tab-icon">◈</span>Experience
+        <span class="tab-icon"><i data-lucide="briefcase"></i></span>Experience
+      </button>
+      <button class="tab" data-section="skills">
+        <span class="tab-icon"><i data-lucide="layers"></i></span>Skills
+      </button>
+      <button class="tab tab-featured" data-section="projects">
+        <span class="tab-icon"><i data-lucide="box"></i></span>Projects
+        <span class="tab-pulse" aria-hidden="true"></span>
       </button>
     </nav>
 
     <main>
-      <section id="network" class="section active">
+      <!-- ============ PROFILE ============ -->
+      <section id="profile" class="section active">
         <div class="section-header">
-          <h2><span class="icon">⬡</span> Network Architecture</h2>
-          <p>Home Lab infrastructure with enterprise-grade networking</p>
+          <h2>
+            <span class="icon"><i data-lucide="terminal"></i></span> Profile
+          </h2>
+          <p>Who I am and what I'm working on</p>
         </div>
 
-        <div class="architecture-diagram">
-          <div class="arch-layer">
-            <div class="arch-label">WAN</div>
-            <div class="arch-block arch-isp">
-              <div class="block-icon"><i data-lucide="network"></i></div>
-              <div class="block-title">ISP Router</div>
-              <div class="block-desc">Port Forwarding → 80, 443</div>
-            </div>
+        <div class="cmd cmd-terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-amber"></span>
+              <span class="dot dot-green"></span>
+            </span>
+            <span class="terminal-title">~/marco-soto $ cat profile.txt</span>
           </div>
-          <div class="arch-arrow">↓</div>
-          <div class="arch-layer">
-            <div class="arch-label">DMZ</div>
-            <div class="arch-block arch-rpi">
-              <div class="block-icon"><i data-lucide="cherry"></i> </div>
-              <div class="block-title">Raspberry Pi 5</div>
-              <div class="block-desc">Arch Linux ARM • Docker Host</div>
-            </div>
-          </div>
-          <div class="arch-arrow">↓</div>
-          <div class="arch-layer">
-            <div class="arch-label">PROXY</div>
-            <div class="arch-block arch-nginx">
-              <div class="block-icon"><i data-lucide="waypoints"></i> </div>
-              <div class="block-title">Nginx Proxy Manager</div>
-              <div class="block-desc">SSL/TLS Termination • Let's Encrypt</div>
-            </div>
-          </div>
+          <code>
+            <span class="comment"># Summary</span>
+            <span class="output"
+              >Computer Engineering graduate specialized in DevOps and</span
+            >
+            <span class="output"
+              >infrastructure. I design, automate, and secure self-hosted</span
+            >
+            <span class="output"
+              >systems — from container orchestration on Kubernetes to</span
+            >
+            <span class="output"
+              >CI/CD pipelines and network-level security.</span
+            >
+
+            <span class="comment"># Currently focused on</span>
+            <span class="keyword">→</span>
+            <span class="output"
+              >Kubernetes operations &amp; GitOps workflows</span
+            >
+            <span class="keyword">→</span>
+            <span class="output">Cloudflare DNS / Zero Trust networking</span>
+            <span class="keyword">→</span>
+            <span class="output"
+              >Infrastructure hardening &amp; observability</span
+            >
+
+            <span class="comment"># Looking for</span>
+            <span class="keyword">→</span>
+            <span class="output"
+              >DevOps / SRE / Platform Engineering roles</span
+            >
+          </code>
         </div>
 
         <div class="info-box">
-          <h3>🔗 Network Configuration</h3>
+          <h3><i data-lucide="map-pin"></i> Quick facts</h3>
           <ul>
+            <li><strong>Location:</strong> Mexico City · open to remote</li>
+            <li><strong>Education:</strong> B.S. Computer Engineering, UNAM</li>
             <li>
-              <strong>Connection:</strong> Ethernet (Cat6) for maximum stability
-              and low latency
+              <strong>Core stack:</strong> Kubernetes · Docker · Jenkins · Linux
+              · Cloudflare
             </li>
             <li>
-              <strong>Dynamic DNS:</strong> DuckDNS for public domain resolution
-            </li>
-            <li>
-              <strong>Reverse Proxy:</strong> Nginx Proxy Manager handles SSL
-              certificates automatically
-            </li>
-            <li>
-              <strong>Traffic Flow:</strong> ISP Router → RPi5 → NPM → Docker
-              Services
+              <strong>Languages:</strong> Spanish (native) · English
+              (professional)
             </li>
           </ul>
         </div>
-
-        <div class="cmd">
-          <div class="cmd-label">Network Topology</div>
-          <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
-          <code>
-            <span class="comment"># Traffic Flow Architecture</span>
-            <span class="output">Internet</span> →
-            <span class="keyword">ISP Router</span> (NAT/Port Forward) →
-            <span class="keyword">Raspberry Pi 5</span> (192.168.1.100) →
-            <span class="keyword">Nginx Proxy Manager</span> (:80, :443) →
-            <span class="keyword">Docker Services</span> (Internal Network)
-          </code>
-        </div>
       </section>
 
-      <section id="services" class="section">
+      <!-- ============ EDUCATION ============ -->
+      <section id="education" class="section">
         <div class="section-header">
-          <h2><span class="icon">▦</span> Docker Services</h2>
-          <p>Self-hosted microservices with container orchestration</p>
+          <h2>
+            <span class="icon"><i data-lucide="graduation-cap"></i></span>
+            Education
+          </h2>
+          <p>Academic background, training &amp; certifications</p>
         </div>
 
-        <div class="services-grid">
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon vpn-icon"><i data-lucide="earth-lock"></i> </div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>WireGuard</h3>
-            <p class="card-desc">
-              Self-hosted VPN server for secure remote connection.
-            </p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">ghcr.io/wg-easy/wg-easy</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Port</span>
-                <span class="spec-value">REDACTED (UDP Tunnel)</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Persistent Storage</span>
-              <span class="tag">Split Tunneling</span>
-              <span class="tag">VPN</span>
-              <span class="tag">Ad-block</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon pihole-icon"><i data-lucide="layout-grid"></i></div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>Pi-hole</h3>
-            <p class="card-desc">Network-wide DNS sinkhole for blocking ads and trackers at the LAN level.</p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">pihole/pihole</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Port</span>
-                <span class="spec-value">53 (DNS Internal)</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Ad-Block</span>
-              <span class="tag">Privacy</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon nginx-icon"><i data-lucide="shield-check"></i></div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>Nginx Proxy Manager</h3>
-            <p class="card-desc">Secure web service exposure with automated SSL/TLS termination.</p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">jc21/nginx-proxy-manager:latest</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Port</span>
-                <span class="spec-value">80, 443 (Standard Web)</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Reverse Proxy</span>
-              <span class="tag">Let's Encrypt</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon duck-icon"><i data-lucide="globe"></i></div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>DuckDNS</h3>
-            <p class="card-desc">Dynamic DNS client to maintain domain resolution for the WAN IP.</p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">linuxserver/duckdns</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Status</span>
-                <span class="spec-value">Active Update</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">DDNS</span>
-              <span class="tag">Network Edge</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon vault-icon"><i data-lucide="user-key"></i></div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>Vaultwarden</h3>
-            <p class="card-desc">
-              Self-hosted Bitwarden server for secure, encrypted password management.
-            </p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">vaultwarden/server:latest</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Volume</span>
-                <span class="spec-value">/vw-data:/data</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Port</span>
-                <span class="spec-value">8080:80</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Persistent Storage</span>
-              <span class="tag">SSL Enabled</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon watchtower-icon"><i data-lucide="refresh-cw"></i></div>
-              <div class="card-status exited">Exited</div>
-            </div>
-            <h3>Watchtower</h3>
-            <p class="card-desc">Container lifecycle automation. Automatically updates running images to latest.</p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">containrrr/watchtower</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Mode</span>
-                <span class="spec-value">Periodic Scan</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Automation</span>
-              <span class="tag">CI/CD Ops</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon portfolio-icon"><i data-lucide="file-user"></i>  </div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>Portfolio</h3>
-            <p class="card-desc">
-              Personal portfolio and infrastructure documentation site.
-            </p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">nginx:alpine</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Volume</span>
-                <span class="spec-value">/portfolio:/usr/share/nginx/html</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Port</span>
-                <span class="spec-value">8081:80</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Static Site</span>
-              <span class="tag">Nginx</span>
-            </div>
-          </div>
-
-          <div class="service-card">
-            <div class="card-header">
-              <div class="card-icon bot-icon"><i data-lucide="message-square"></i></div>
-              <div class="card-status running">Running</div>
-            </div>
-            <h3>Docker Controller Bot</h3>
-            <p class="card-desc">Telegram bot for remote monitoring and container control via API.</p>
-            <div class="card-specs">
-              <div class="spec">
-                <span class="spec-label">Image</span>
-                <span class="spec-value">dgongut/docker-controller-bot:latest</span>
-              </div>
-              <div class="spec">
-                <span class="spec-label">Status</span>
-                <span class="spec-value">Healthy</span>
-              </div>
-            </div>
-            <div class="card-tags">
-              <span class="tag">Monitoring</span>
-              <span class="tag">Telegram API</span>
+        <div class="certs-section">
+          <h3><i data-lucide="graduation-cap"></i> Degree</h3>
+          <div class="education-box">
+            <div class="edu-content">
+              <h4>B.S. in Computer Engineering</h4>
+              <p>Faculty of Engineering, UNAM · 2021 – 2026</p>
             </div>
           </div>
         </div>
 
-        <div class="cmd">
-          <div class="cmd-label">docker-compose.yml</div>
-          <button class="copy-btn" onclick="copyToClipboard(this)">Copy</button>
-          <code>
-            <span class="keyword">version:</span> <span class="option">'3.8'</span>
-
-            <span class="keyword">services:</span>
-              <span class="prompt">nginx-proxy-manager:</span>
-                <span class="keyword">image:</span> jc21/nginx-proxy-manager:latest
-                <span class="keyword">ports:</span>
-                  - <span class="option">"80:80"</span>
-                  - <span class="option">"443:443"</span>
-                <span class="keyword">volumes:</span>
-                  - <span class="option">./npm/data:/data</span>
-                  - <span class="option">./npm/letsencrypt:/etc/letsencrypt</span>
-                <span class="keyword">restart:</span> unless-stopped
-
-              <span class="prompt">wg-easy:</span>
-                <span class="keyword">image:</span> ghcr.io/wg-easy/wg-easy
-                <span class="keyword">environment:</span>
-                  - <span class="option">WG_HOST=tu-dominio.duckdns.org</span>
-                <span class="keyword">volumes:</span>
-                  - <span class="option">./wireguard:/etc/wireguard</span>
-                <span class="keyword">restart:</span> unless-stopped
-
-              <span class="prompt">pihole:</span>
-                <span class="keyword">image:</span> pihole/pihole:latest
-                <span class="keyword">ports:</span>
-                  - <span class="option">"53:53/tcp"</span>
-                  - <span class="option">"53:53/udp"</span>
-                <span class="keyword">restart:</span> unless-stopped
-
-              <span class="prompt">vaultwarden:</span>
-                <span class="keyword">image:</span> vaultwarden/server:latest
-                <span class="keyword">volumes:</span>
-                  - <span class="option">vw-data:/data</span>
-                <span class="keyword">restart:</span> unless-stopped
-
-              <span class="prompt">portfolio:</span>
-                <span class="keyword">image:</span> nginx:alpine
-                <span class="keyword">volumes:</span>
-                  - <span class="option">./portfolio:/usr/share/nginx/html</span>
-                <span class="keyword">restart:</span> unless-stopped
-
-              <span class="prompt">watchtower:</span>
-                <span class="keyword">image:</span> containrrr/watchtower
-                <span class="keyword">volumes:</span>
-                  - <span class="option">/var/run/docker.sock:/var/run/docker.sock</span>
-
-            <span class="keyword">volumes:</span>
-              <span class="prompt">vw-data:</span>
-          </code>
-        </div>
-      </section>
-
-      <section id="hardening" class="section">
-        <div class="section-header">
-          <h2><span class="icon">⛨</span> Security Hardening</h2>
-          <p>Multi-layer security implementation for infrastructure protection</p>
-        </div>
-
-        <div class="security-list">
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>SSH Key-only Auth</h4>
-              <p>Password authentication disabled. Access restricted to Ed25519 key pairs with passphrase protection.</p>
-              <div class="cmd inline">
-                <code><span class="prompt">$</span> <span class="keyword">ssh-keygen</span> <span class="option">-t ed25519 -a 100</span></code>
+        <div class="certs-section">
+          <h3>
+            <i data-lucide="book-open"></i> Certification Training &amp;
+            Diplomas
+          </h3>
+          <div class="certs-grid">
+            <div class="cert-card">
+              <div class="cert-badge cisco">CCNA</div>
+              <div class="cert-info">
+                <h4>Cisco CCNA — Routing &amp; Switching</h4>
+                <p>Faculty of Engineering, UNAM · 2024</p>
               </div>
             </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>WireGuard VPN for Remote Management</h4>
-              <p>Encrypted tunnel for secure remote administration. Zero services exposed directly to the internet except via VPN.</p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>Docker Network Isolation</h4>
-              <p>Custom bridge networks ensure container isolation. Services communicate only through defined internal networks.</p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>Automated Updates (Watchtower)</h4>
-              <p>Automated maintenance of container lifecycles. Images are updated to latest patches, reducing vulnerability windows.</p>
-            </div>
-          </div>
-
-          <div class="security-item">
-            <div class="security-icon secure">✓</div>
-            <div class="security-content">
-              <h4>Intrusion Prevention (Fail2Ban)</h4>
-              <p>Proactive log monitoring to detect and automatically block malicious IPs after failed authentication attempts.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="section">
-        <div class="section-header">
-          <h2><span class="icon">◈</span> Experience & Certifications</h2>
-          <p>Professional background in QA Automation and Network Engineering</p>
-        </div>
-
-        <div class="experience-timeline">
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h4>QA Automation Intern</h4>
-                <span class="timeline-company">CTIN • Mexico City</span>
+            <div class="cert-card">
+              <div class="cert-badge cisco">ENCOR</div>
+              <div class="cert-info">
+                <h4>CCNP Enterprise — ENCORE</h4>
+                <p>Faculty of Engineering, UNAM · 2025</p>
               </div>
-              <span class="timeline-date">May 2025 – Nov 2025</span>
-              <p>Integrated automated test suites into Jenkins CI/CD pipelines. Managed test environments across physical devices and web platforms.</p>
             </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="timeline-marker"></div>
-            <div class="timeline-content">
-              <div class="timeline-header">
-                <h4>Social Service Intern</h4>
-                <span class="timeline-company">Microsoft AI Laboratory, UNAM</span>
+            <div class="cert-card">
+              <div class="cert-badge cisco">SEC</div>
+              <div class="cert-info">
+                <h4>CCNP Security</h4>
+                <p>Faculty of Engineering, UNAM · In Progress</p>
               </div>
-              <span class="timeline-date">June 2024 – Dec 2024</span>
-              <p>Network monitoring and maintenance for campus LAN. Internal software development and perimeter equipment administration.</p>
             </div>
           </div>
         </div>
@@ -476,17 +232,19 @@
           <h3><i data-lucide="award"></i> Certifications</h3>
           <div class="certs-grid">
             <div class="cert-card">
-              <div class="cert-badge nvidia">NVIDIA</div>
+              <div class="cert-badge nvidia">NVDA</div>
               <div class="cert-info">
                 <h4>NVIDIA DLI</h4>
-                <p>Fundamentals of Deep Learning • Knowledge Retrieval in LLMs</p>
+                <p>
+                  Fundamentals of Deep Learning · Knowledge Retrieval in LLMs
+                </p>
               </div>
             </div>
             <div class="cert-card">
               <div class="cert-badge certiprof">CERT</div>
               <div class="cert-info">
                 <h4>Certiprof</h4>
-                <p>Cybersecurity Awareness (CAPC) • Remote Work Professional</p>
+                <p>Cybersecurity Awareness (CAPC) · Remote Work Professional</p>
               </div>
             </div>
             <div class="cert-card">
@@ -498,35 +256,191 @@
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="education-box">
-          <h3><i data-lucide="graduation-cap"></i> Education</h3>
-          <div class="edu-content">
-            <h4>B.S. in Computer Engineering</h4>
-            <p>Faculty of Engineering, UNAM • 2021 - 2026</p>
-          </div>
+      <!-- ============ EXPERIENCE ============ -->
+      <section id="experience" class="section">
+        <div class="section-header">
+          <h2>
+            <span class="icon"><i data-lucide="briefcase"></i></span> Experience
+          </h2>
+          <p>Professional background in QA automation &amp; networking</p>
         </div>
 
-        <div class="education-box">
-          <h3><i data-lucide="book-open"></i> Certification Training</h3>
-          <div class="edu-content">
-            <h4>Cisco CCNA - Routing & Switching</h4>
-            <p>Faculty of Engineering, UNAM • 2024</p>
+        <div class="experience-timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h4>QA Automation Intern</h4>
+                <span class="timeline-company">CTIN · Mexico City</span>
+              </div>
+              <span class="timeline-date">May 2025 – Nov 2025</span>
+              <p>
+                Integrated automated test suites into Jenkins CI/CD pipelines.
+                Managed test environments across physical devices and web
+                platforms.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Jenkins</span>
+                <span class="tag">CI/CD</span>
+                <span class="tag">Test Automation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h4>Social Service Intern</h4>
+                <span class="timeline-company">Microsoft AI Lab · UNAM</span>
+              </div>
+              <span class="timeline-date">June 2024 – Dec 2024</span>
+              <p>
+                Network monitoring and maintenance for campus LAN. Internal
+                software development and perimeter equipment administration.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Networking</span>
+                <span class="tag">LAN</span>
+                <span class="tag">Monitoring</span>
+              </div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <div class="education-box">
-          <h3><i data-lucide="scroll"></i> Professional Diplomas</h3>
-          <div class="edu-content">
-            <h4>CCNP Enterprise - ENCORE</h4>
-            <p>Faculty of Engineering, UNAM • 2025</p>
-          </div>
-          <div class="edu-content">
-            <h4>CCNP Security</h4>
-            <p>Faculty of Engineering, UNAM • In Progress</p>
-          </div>
+      <!-- ============ SKILLS ============ -->
+      <section id="skills" class="section">
+        <div class="section-header">
+          <h2>
+            <span class="icon"><i data-lucide="layers"></i></span> Skills &amp;
+            Stack
+          </h2>
+          <p>Technical toolkit grouped by domain</p>
         </div>
 
+        <div class="skills-grid">
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="box"></i>
+              <h3>Containers &amp; Orchestration</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Kubernetes</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Docker Compose</span>
+              <span class="skill-chip">Helm</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="git-branch"></i>
+              <h3>CI/CD &amp; Automation</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Jenkins</span>
+              <span class="skill-chip">GitHub Actions</span>
+              <span class="skill-chip">Watchtower</span>
+              <span class="skill-chip">Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="waypoints"></i>
+              <h3>Networking &amp; DNS</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Cloudflare DNS</span>
+              <span class="skill-chip">Nginx Proxy Manager</span>
+              <span class="skill-chip">WireGuard</span>
+              <span class="skill-chip">Pi-hole</span>
+              <span class="skill-chip">Cisco Routing/Switching</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="shield-check"></i>
+              <h3>Security &amp; Hardening</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Fail2Ban</span>
+              <span class="skill-chip">SSH Hardening</span>
+              <span class="skill-chip">Network Isolation</span>
+              <span class="skill-chip">TLS / Let's Encrypt</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="terminal"></i>
+              <h3>OS &amp; Platforms</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Linux</span>
+              <span class="skill-chip">Arch Linux ARM</span>
+              <span class="skill-chip">Raspberry Pi</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROJECTS ============ -->
+      <section id="projects" class="section">
+        <div class="section-header">
+          <h2>
+            <span class="icon"><i data-lucide="box"></i></span> Projects
+          </h2>
+          <p>Selected work — infrastructure &amp; automation</p>
+        </div>
+
+        <!-- Featured project: Home Lab -->
+        <article class="project-featured">
+          <div class="project-featured-tag">Featured</div>
+          <div class="project-featured-header">
+            <div class="card-icon rpi-icon"><i data-lucide="server"></i></div>
+            <div>
+              <h3>Kubernetes Home Lab</h3>
+              <p class="project-subtitle">
+                Self-hosted platform · Raspberry Pi · K8s · Cloudflare DNS
+              </p>
+            </div>
+          </div>
+
+          <p class="project-desc">
+            A production-style home lab running self-hosted services on a
+            Kubernetes cluster, exposed securely through Cloudflare DNS. Covers
+            container orchestration, automated TLS, VPN access, DNS-level ad
+            blocking, and infrastructure hardening.
+          </p>
+
+          <div class="project-highlights">
+            <span class="highlight-chip"
+              ><i data-lucide="box"></i> Kubernetes cluster</span
+            >
+            <span class="highlight-chip"
+              ><i data-lucide="globe"></i> Cloudflare DNS</span
+            >
+            <span class="highlight-chip"
+              ><i data-lucide="lock"></i> WireGuard VPN</span
+            >
+            <span class="highlight-chip"
+              ><i data-lucide="shield"></i> Hardened by default</span
+            >
+          </div>
+
+          <div class="project-note">
+            <i data-lucide="hammer"></i>
+            <span
+              >Detailed case study coming next — architecture diagram,
+              manifests, and migration writeup.</span
+            >
+          </div>
+        </article>
       </section>
     </main>
 

@@ -104,7 +104,7 @@ function initAnimations() {
 
   // Observe elements with animation
   const animatedElements = document.querySelectorAll(
-    ".service-card, .security-item, .timeline-item, .cert-card",
+    ".skill-group, .stat, .project-featured, .security-item, .timeline-item, .cert-card, .education-box",
   );
   animatedElements.forEach((el, index) => {
     el.style.opacity = "0";
@@ -118,7 +118,7 @@ function initAnimations() {
     const activeSection = document.querySelector(".section.active");
     if (activeSection) {
       const elements = activeSection.querySelectorAll(
-        ".service-card, .security-item, .timeline-item, .cert-card",
+        ".skill-group, .stat, .project-featured, .security-item, .timeline-item, .cert-card, .education-box",
       );
       elements.forEach((el) => {
         el.style.opacity = "1";

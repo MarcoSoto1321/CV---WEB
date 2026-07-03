@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initCopyButtons();
   initAnimations();
+  initProjectModal();
 });
 
 /**
@@ -140,9 +141,79 @@ function scrollToSection(sectionId) {
 }
 
 /**
+ * Initialize project cards → modal popup
+ */
+function initProjectModal() {
+  const overlay = document.getElementById("projectModal");
+  if (!overlay) return;
+
+  const body = document.getElementById("modalBody");
+  const closeBtn = overlay.querySelector(".modal-close");
+  const cards = document.querySelectorAll(".project-card");
+  let lastFocused = null;
+
+  function openModal(card) {
+    const detail = card.querySelector("template.project-detail");
+    if (!detail) return;
+
+    lastFocused = card;
+    body.innerHTML = "";
+    body.appendChild(detail.content.cloneNode(true));
+
+    overlay.classList.add("open");
+    overlay.removeAttribute("hidden");
+    document.body.classList.add("modal-open");
+
+    // Re-render Lucide icons injected into the modal
+    if (window.lucide) lucide.createIcons();
+
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.classList.remove("open");
+    overlay.setAttribute("hidden", "");
+    document.body.classList.remove("modal-open");
+    body.innerHTML = "";
+    if (lastFocused) lastFocused.focus();
+  }
+
+  cards.forEach((card) => {
+    card.addEventListener("click", () => openModal(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openModal(card);
+      }
+    });
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+
+  // Click on the backdrop (not the modal panel) closes it
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // Escape closes it
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && overlay.classList.contains("open")) {
+      closeModal();
+    }
+  });
+
+  // Expose for potential external use
+  window.closeProjectModal = closeModal;
+}
+
+/**
  * Handle keyboard navigation for tabs
  */
 document.addEventListener("keydown", (e) => {
+  // Don't hijack arrow keys while the modal is open
+  const modal = document.getElementById("projectModal");
+  if (modal && modal.classList.contains("open")) return;
+
   const tabs = document.querySelectorAll(".tab");
   const activeTab = document.querySelector(".tab.active");
   const activeIndex = Array.from(tabs).indexOf(activeTab);

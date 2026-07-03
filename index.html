@@ -71,17 +71,13 @@
 
       <!-- CTAs -->
       <div class="cta-row">
-        <a class="cta cta-primary" href="assets/marco-soto-cv.pdf" download>
+        <a class="cta cta-primary" href="assets/cv/marco-soto-cv.pdf" download>
           <i data-lucide="download"></i> Download CV
         </a>
         <a class="cta" href="https://github.com/MarcoSoto1321" target="_blank">
           <i data-lucide="github"></i> GitHub
         </a>
-        <a
-          class="cta"
-          href="https://www.linkedin.com/in/marco-soto-rivera/"
-          target="_blank"
-        >
+        <a class="cta" href="https://www.linkedin.com/in/" target="_blank">
           <i data-lucide="linkedin"></i> LinkedIn
         </a>
         <a class="cta" href="mailto:marcosoto1321p@gmail.com">
@@ -399,54 +395,153 @@
           <h2>
             <span class="icon"><i data-lucide="box"></i></span> Projects
           </h2>
-          <p>Selected work — infrastructure &amp; automation</p>
+          <p>
+            Selected work — infrastructure &amp; automation. Click a card for
+            the full case study.
+          </p>
         </div>
 
-        <!-- Featured project: Home Lab -->
-        <article class="project-featured">
-          <div class="project-featured-tag">Featured</div>
-          <div class="project-featured-header">
-            <div class="card-icon rpi-icon"><i data-lucide="server"></i></div>
-            <div>
-              <h3>Kubernetes Home Lab</h3>
-              <p class="project-subtitle">
-                Self-hosted platform · Raspberry Pi · K8s · Cloudflare DNS
-              </p>
+        <div class="projects-grid">
+          <!-- ===== Project card: Home Lab ===== -->
+          <article
+            class="project-card is-featured"
+            data-project="homelab"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+          >
+            <div class="project-card-tag">Featured</div>
+
+            <div class="project-card-head">
+              <div class="card-icon rpi-icon"><i data-lucide="server"></i></div>
+              <div>
+                <h3>Kubernetes Home Lab</h3>
+                <p class="project-subtitle">
+                  Raspberry Pi · K8s · Cloudflare DNS
+                </p>
+              </div>
             </div>
-          </div>
 
-          <p class="project-desc">
-            A production-style home lab running self-hosted services on a
-            Kubernetes cluster, exposed securely through Cloudflare DNS. Covers
-            container orchestration, automated TLS, VPN access, DNS-level ad
-            blocking, and infrastructure hardening.
-          </p>
+            <p class="project-desc">
+              Production-style home lab running self-hosted services on a
+              Kubernetes cluster, exposed securely through Cloudflare DNS.
+            </p>
 
-          <div class="project-highlights">
-            <span class="highlight-chip"
-              ><i data-lucide="box"></i> Kubernetes cluster</span
-            >
-            <span class="highlight-chip"
-              ><i data-lucide="globe"></i> Cloudflare DNS</span
-            >
-            <span class="highlight-chip"
-              ><i data-lucide="lock"></i> WireGuard VPN</span
-            >
-            <span class="highlight-chip"
-              ><i data-lucide="shield"></i> Hardened by default</span
-            >
-          </div>
+            <div class="project-tech">
+              <span class="skill-chip">Kubernetes</span>
+              <span class="skill-chip">Cloudflare</span>
+              <span class="skill-chip">WireGuard</span>
+              <span class="skill-chip">Docker</span>
+              <span class="skill-chip">Linux</span>
+            </div>
 
-          <div class="project-note">
-            <i data-lucide="hammer"></i>
-            <span
-              >Detailed case study coming next — architecture diagram,
-              manifests, and migration writeup.</span
-            >
-          </div>
-        </article>
+            <div class="project-card-foot">
+              <span class="view-more"
+                ><span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i
+              ></span>
+            </div>
+
+            <!-- Hidden detail rendered inside the modal on click -->
+            <template class="project-detail">
+              <div class="detail-head">
+                <div class="card-icon rpi-icon">
+                  <i data-lucide="server"></i>
+                </div>
+                <div>
+                  <h3>Kubernetes Home Lab</h3>
+                  <p class="project-subtitle">
+                    Self-hosted platform · Raspberry Pi · K8s · Cloudflare DNS
+                  </p>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="file-text"></i> Overview</h4>
+                <p>
+                  A self-hosted home lab that orchestrates several services on a
+                  Kubernetes cluster and exposes them to the internet through
+                  Cloudflare DNS. It covers the full path from bare Linux to a
+                  running, secured platform: container orchestration, automated
+                  TLS, VPN-only administration, DNS-level ad blocking, and
+                  infrastructure hardening.
+                </p>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="layers"></i> Stack &amp; tooling</h4>
+                <div class="project-tech">
+                  <span class="skill-chip">Kubernetes</span>
+                  <span class="skill-chip">Cloudflare DNS</span>
+                  <span class="skill-chip">WireGuard</span>
+                  <span class="skill-chip">Pi-hole</span>
+                  <span class="skill-chip">Vaultwarden</span>
+                  <span class="skill-chip">Docker</span>
+                  <span class="skill-chip">Arch Linux ARM</span>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="check-circle"></i> Highlights</h4>
+                <ul class="detail-list">
+                  <li>
+                    Container orchestration on a Kubernetes cluster running on
+                    Raspberry Pi.
+                  </li>
+                  <li>
+                    Public exposure and DNS managed through Cloudflare,
+                    replacing the previous DuckDNS + Nginx Proxy Manager setup.
+                  </li>
+                  <li>
+                    Encrypted remote administration over WireGuard — no service
+                    exposed directly except through VPN.
+                  </li>
+                  <li>
+                    Network-wide ad/tracker blocking with Pi-hole and
+                    self-hosted password management with Vaultwarden.
+                  </li>
+                  <li>
+                    Hardening baseline: SSH key-only auth, Fail2Ban, and network
+                    isolation between workloads.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="project-note">
+                <i data-lucide="hammer"></i>
+                <span
+                  >Full case study in progress — architecture diagram,
+                  manifests, and migration writeup coming next.</span
+                >
+              </div>
+            </template>
+          </article>
+        </div>
       </section>
     </main>
+
+    <!-- ============ PROJECT MODAL ============ -->
+    <div class="modal-overlay" id="projectModal" hidden>
+      <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-bar">
+          <span class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-amber"></span>
+            <span class="dot dot-green"></span>
+          </span>
+          <span class="modal-bar-title">project — details</span>
+          <button class="modal-close" aria-label="Close details">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
 
     <footer>
       <div class="footer-content">

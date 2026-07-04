@@ -5,10 +5,39 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
+  initStatLinks();
   initCopyButtons();
   initAnimations();
   initProjectModal();
 });
+
+/**
+ * Make hero stats navigate to their related tab/section
+ */
+function initStatLinks() {
+  const stats = document.querySelectorAll(".stat[data-goto]");
+
+  function goTo(stat) {
+    const targetTab = document.querySelector(
+      `.tab[data-section="${stat.dataset.goto}"]`,
+    );
+    if (!targetTab) return;
+    targetTab.click();
+    document
+      .querySelector(".tabs")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  stats.forEach((stat) => {
+    stat.addEventListener("click", () => goTo(stat));
+    stat.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        goTo(stat);
+      }
+    });
+  });
+}
 
 /**
  * Initialize tab navigation

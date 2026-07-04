@@ -1015,6 +1015,20 @@ h1 span {
   transition: border-color 0.2s;
 }
 
+.stat[data-goto] {
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+
+.stat[data-goto]:hover,
+.stat[data-goto]:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  outline: none;
+}
+
 .stat:hover {
   border-color: var(--accent);
 }

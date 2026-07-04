@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=2" />
+    <link rel="stylesheet" href="css/styles.css?v=3" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <link
       rel="apple-touch-icon"
@@ -51,19 +51,43 @@
 
       <!-- Quick stats -->
       <div class="stats-bar">
-        <div class="stat">
+        <div
+          class="stat"
+          data-goto="experience"
+          role="button"
+          tabindex="0"
+          aria-label="Go to Experience"
+        >
           <span class="stat-value">2+</span>
           <span class="stat-label">Years hands-on</span>
         </div>
-        <div class="stat">
-          <span class="stat-value">8</span>
+        <div
+          class="stat"
+          data-goto="projects"
+          role="button"
+          tabindex="0"
+          aria-label="Go to Projects"
+        >
+          <span class="stat-value">15+</span>
           <span class="stat-label">Services in prod</span>
         </div>
-        <div class="stat">
+        <div
+          class="stat"
+          data-goto="education"
+          role="button"
+          tabindex="0"
+          aria-label="Go to Education"
+        >
           <span class="stat-value">3</span>
           <span class="stat-label">Certifications</span>
         </div>
-        <div class="stat">
+        <div
+          class="stat"
+          data-goto="skills"
+          role="button"
+          tabindex="0"
+          aria-label="Go to Skills"
+        >
           <span class="stat-value">K8s</span>
           <span class="stat-label">Orchestration</span>
         </div>
@@ -329,6 +353,7 @@
             </div>
             <div class="skill-tags">
               <span class="skill-chip">Kubernetes</span>
+              <span class="skill-chip">K3s</span>
               <span class="skill-chip">Docker</span>
               <span class="skill-chip">Docker Compose</span>
               <span class="skill-chip">Helm</span>
@@ -341,6 +366,8 @@
               <h3>CI/CD &amp; Automation</h3>
             </div>
             <div class="skill-tags">
+              <span class="skill-chip">ArgoCD</span>
+              <span class="skill-chip">GitOps</span>
               <span class="skill-chip">Jenkins</span>
               <span class="skill-chip">GitHub Actions</span>
               <span class="skill-chip">Watchtower</span>
@@ -355,6 +382,7 @@
             </div>
             <div class="skill-tags">
               <span class="skill-chip">Cloudflare DNS</span>
+              <span class="skill-chip">Traefik</span>
               <span class="skill-chip">Nginx Proxy Manager</span>
               <span class="skill-chip">WireGuard</span>
               <span class="skill-chip">Pi-hole</span>
@@ -371,6 +399,7 @@
               <span class="skill-chip">Fail2Ban</span>
               <span class="skill-chip">SSH Hardening</span>
               <span class="skill-chip">Network Isolation</span>
+              <span class="skill-chip">cert-manager</span>
               <span class="skill-chip">TLS / Let's Encrypt</span>
             </div>
           </div>
@@ -790,7 +819,7 @@
       </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=3"></script>
     <script>
       lucide.createIcons();
     </script>

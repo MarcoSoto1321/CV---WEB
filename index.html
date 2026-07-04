@@ -417,22 +417,25 @@
               <div>
                 <h3>Kubernetes Home Lab</h3>
                 <p class="project-subtitle">
-                  Raspberry Pi · K8s · Cloudflare DNS
+                  Raspberry Pi 5 · K3s · GitOps · Cloudflare
                 </p>
               </div>
             </div>
 
             <p class="project-desc">
-              Production-style home lab running self-hosted services on a
-              Kubernetes cluster, exposed securely through Cloudflare DNS.
+              Production-style platform migrated from Docker to a K3s cluster
+              with zero downtime for critical services — declarative GitOps with
+              ArgoCD, automated TLS, and a full observability stack. This site
+              is served from that cluster.
             </p>
 
             <div class="project-tech">
-              <span class="skill-chip">Kubernetes</span>
+              <span class="skill-chip">K3s</span>
+              <span class="skill-chip">ArgoCD</span>
+              <span class="skill-chip">Traefik</span>
+              <span class="skill-chip">cert-manager</span>
               <span class="skill-chip">Cloudflare</span>
               <span class="skill-chip">WireGuard</span>
-              <span class="skill-chip">Docker</span>
-              <span class="skill-chip">Linux</span>
             </div>
 
             <div class="project-card-foot">
@@ -451,7 +454,8 @@
                 <div>
                   <h3>Kubernetes Home Lab</h3>
                   <p class="project-subtitle">
-                    Self-hosted platform · Raspberry Pi · K8s · Cloudflare DNS
+                    Self-hosted platform · Raspberry Pi 5 · K3s · GitOps ·
+                    Cloudflare
                   </p>
                 </div>
               </div>
@@ -459,25 +463,110 @@
               <div class="detail-section">
                 <h4><i data-lucide="file-text"></i> Overview</h4>
                 <p>
-                  A self-hosted home lab that orchestrates several services on a
-                  Kubernetes cluster and exposes them to the internet through
-                  Cloudflare DNS. It covers the full path from bare Linux to a
-                  running, secured platform: container orchestration, automated
-                  TLS, VPN-only administration, DNS-level ad blocking, and
-                  infrastructure hardening.
+                  A production-style self-hosted platform running on a K3s
+                  cluster (Raspberry Pi 5, NVMe storage), migrated progressively
+                  from a Docker-based setup with
+                  <strong>zero downtime</strong> for critical services like the
+                  password manager. Every workload is declared as Kubernetes
+                  manifests in a Git repository and reconciled by ArgoCD — the
+                  same GitOps workflow used in real production platforms. This
+                  very CV is one of the applications deployed on the cluster.
                 </p>
+              </div>
+
+              <div class="detail-section">
+                <h4>
+                  <i data-lucide="network"></i> Architecture — hybrid by design
+                </h4>
+                <ul class="detail-list">
+                  <li>
+                    <strong>K3s single-node cluster</strong> with Traefik as
+                    Ingress Controller and <code>local-path</code> persistent
+                    volumes on NVMe — designed with multi-node expansion in mind
+                    (namespaces, affinity, storage strategy).
+                  </li>
+                  <li>
+                    <strong>Automated TLS</strong> with cert-manager and
+                    Cloudflare DNS-01 challenges; DNS records kept in sync with
+                    dynamic-DNS deployments running in the cluster.
+                  </li>
+                  <li>
+                    <strong>Failure-domain separation:</strong> WireGuard VPN
+                    and Pi-hole (with Unbound as recursive resolver) stay
+                    outside the cluster on purpose — remote access and DNS
+                    survive even if Kubernetes goes down.
+                  </li>
+                  <li>
+                    <strong>Docker retained at the edge</strong> for
+                    network-adjacent services: Nginx Proxy Manager, Unbound,
+                    WireGuard UI, Portainer, and Watchtower for automated image
+                    updates.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="git-branch"></i> GitOps workflow</h4>
+                <ul class="detail-list">
+                  <li>
+                    ArgoCD <strong>app-of-apps</strong> pattern: separate
+                    Application sets for apps, infrastructure, and web apps, all
+                    synced automatically from GitHub.
+                  </li>
+                  <li>
+                    Secrets never touch Git — <code>secret.example.yaml</code>
+                    templates document each required Secret, real values live
+                    only in the cluster.
+                  </li>
+                  <li>
+                    Repository organized as a platform: manifests per app, core
+                    cluster config, runbooks, and backup/install scripts.
+                  </li>
+                </ul>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="boxes"></i> Workloads</h4>
+                <p>
+                  Stateful and stateless services with PVCs on NVMe: Vaultwarden
+                  (passwords), Firefly III + Importer (personal finance, with
+                  MySQL), n8n (automation), Wiki.js, Trilium, Stirling-PDF, and
+                  this portfolio site.
+                </p>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="activity"></i> Observability</h4>
+                <ul class="detail-list">
+                  <li>
+                    kube-prometheus-stack (Prometheus + Grafana) deployed via
+                    Helm with version-controlled values.
+                  </li>
+                  <li>
+                    Centralized logging with Loki + Promtail (DaemonSet), plus
+                    cAdvisor for container metrics.
+                  </li>
+                  <li>Alertmanager routing cluster alerts to Slack.</li>
+                </ul>
               </div>
 
               <div class="detail-section">
                 <h4><i data-lucide="layers"></i> Stack &amp; tooling</h4>
                 <div class="project-tech">
-                  <span class="skill-chip">Kubernetes</span>
+                  <span class="skill-chip">K3s</span>
+                  <span class="skill-chip">Traefik</span>
+                  <span class="skill-chip">ArgoCD</span>
+                  <span class="skill-chip">cert-manager</span>
                   <span class="skill-chip">Cloudflare DNS</span>
+                  <span class="skill-chip">Helm</span>
+                  <span class="skill-chip">Prometheus</span>
+                  <span class="skill-chip">Grafana</span>
+                  <span class="skill-chip">Loki</span>
+                  <span class="skill-chip">Alertmanager</span>
                   <span class="skill-chip">WireGuard</span>
                   <span class="skill-chip">Pi-hole</span>
-                  <span class="skill-chip">Vaultwarden</span>
+                  <span class="skill-chip">Unbound</span>
                   <span class="skill-chip">Docker</span>
-                  <span class="skill-chip">Arch Linux ARM</span>
                 </div>
               </div>
 
@@ -485,34 +574,179 @@
                 <h4><i data-lucide="check-circle"></i> Highlights</h4>
                 <ul class="detail-list">
                   <li>
-                    Container orchestration on a Kubernetes cluster running on
-                    Raspberry Pi.
+                    Phased Docker → K3s migration (stateless first, then
+                    stateful, then databases) with backups and runbooks before
+                    every risky step — no data loss, no downtime.
                   </li>
                   <li>
-                    Public exposure and DNS managed through Cloudflare,
-                    replacing the previous DuckDNS + Nginx Proxy Manager setup.
+                    Full GitOps: the cluster state is reproducible from the
+                    repository; manual <code>kubectl apply</code> is the
+                    exception, not the rule.
                   </li>
                   <li>
-                    Encrypted remote administration over WireGuard — no service
-                    exposed directly except through VPN.
+                    Wildcard TLS automated end-to-end with cert-manager +
+                    Cloudflare — no manual certificate handling.
                   </li>
                   <li>
-                    Network-wide ad/tracker blocking with Pi-hole and
-                    self-hosted password management with Vaultwarden.
+                    Deliberate reliability engineering: core network services
+                    (VPN, DNS) isolated from the cluster's failure domain.
                   </li>
                   <li>
-                    Hardening baseline: SSH key-only auth, Fail2Ban, and network
-                    isolation between workloads.
+                    Encrypted remote administration over WireGuard only;
+                    hardening baseline with SSH key-only auth, Fail2Ban, and
+                    network-wide ad/tracker blocking via Pi-hole → Unbound.
+                  </li>
+                </ul>
+              </div>
+            </template>
+          </article>
+
+          <!-- ===== Project card: GitOps CI/CD Platform ===== -->
+          <article
+            class="project-card"
+            data-project="gitops-cicd"
+            tabindex="0"
+            role="button"
+            aria-haspopup="dialog"
+          >
+            <div class="project-card-tag tag-alt">GitOps</div>
+
+            <div class="project-card-head">
+              <div class="card-icon pipeline-icon">
+                <i data-lucide="workflow"></i>
+              </div>
+              <div>
+                <h3>GitOps CI/CD Platform</h3>
+                <p class="project-subtitle">Tekton · ArgoCD · Kubernetes</p>
+              </div>
+            </div>
+
+            <p class="project-desc">
+              End-to-end CI/CD platform for a Go + Svelte web store: GitHub
+              webhooks trigger Tekton pipelines that build images with Kaniko
+              and update manifests, while ArgoCD keeps staging and prod in sync
+              — pure GitOps.
+            </p>
+
+            <div class="project-tech">
+              <span class="skill-chip">Tekton</span>
+              <span class="skill-chip">ArgoCD</span>
+              <span class="skill-chip">Kaniko</span>
+              <span class="skill-chip">GitOps</span>
+              <span class="skill-chip">Prometheus</span>
+              <span class="skill-chip">Grafana</span>
+            </div>
+
+            <div class="project-card-foot">
+              <span class="view-more"
+                ><span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i
+              ></span>
+            </div>
+
+            <!-- Hidden detail rendered inside the modal on click -->
+            <template class="project-detail">
+              <div class="detail-head">
+                <div class="card-icon pipeline-icon">
+                  <i data-lucide="workflow"></i>
+                </div>
+                <div>
+                  <h3>GitOps CI/CD Platform — NoNameStore</h3>
+                  <p class="project-subtitle">
+                    Cloud-native delivery pipeline · Tekton · ArgoCD ·
+                    Kubernetes
+                  </p>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="file-text"></i> Overview</h4>
+                <p>
+                  A complete cloud-native delivery platform built around a
+                  full-stack web store (Go/Gin API + Svelte frontend + MariaDB).
+                  Every push to GitHub flows automatically through build,
+                  registry, manifest update, and deployment — with separate
+                  staging and production environments reconciled by ArgoCD, plus
+                  a full observability stack on top.
+                </p>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="git-branch"></i> Pipeline flow</h4>
+                <ul class="detail-list">
+                  <li>
+                    <strong>git push</strong> → GitHub webhook hits a Tekton
+                    EventListener, which captures the commit hash.
+                  </li>
+                  <li>
+                    Tekton pipeline clones the repo and builds frontend &amp;
+                    backend images in parallel with Kaniko (no Docker daemon).
+                  </li>
+                  <li>
+                    Images are pushed to Docker Hub tagged with the
+                    <strong>commit hash</strong> — immutable tags, no
+                    <code>latest</code>.
+                  </li>
+                  <li>
+                    A GitOps step patches the Kubernetes manifests with the new
+                    tag and commits them back to the repo.
+                  </li>
+                  <li>
+                    ArgoCD detects the change and syncs staging and prod
+                    automatically (auto-sync, prune &amp; self-heal).
                   </li>
                 </ul>
               </div>
 
-              <div class="project-note">
-                <i data-lucide="hammer"></i>
-                <span
-                  >Full case study in progress — architecture diagram,
-                  manifests, and migration writeup coming next.</span
-                >
+              <div class="detail-section">
+                <h4><i data-lucide="layers"></i> Stack &amp; tooling</h4>
+                <div class="project-tech">
+                  <span class="skill-chip">Tekton Pipelines</span>
+                  <span class="skill-chip">Tekton Triggers</span>
+                  <span class="skill-chip">ArgoCD</span>
+                  <span class="skill-chip">Kaniko</span>
+                  <span class="skill-chip">Kubernetes</span>
+                  <span class="skill-chip">MariaDB</span>
+                  <span class="skill-chip">Prometheus</span>
+                  <span class="skill-chip">Alertmanager</span>
+                  <span class="skill-chip">Grafana</span>
+                  <span class="skill-chip">Fluentd</span>
+                  <span class="skill-chip">OpenSearch</span>
+                  <span class="skill-chip">Go</span>
+                  <span class="skill-chip">Svelte</span>
+                </div>
+              </div>
+
+              <div class="detail-section">
+                <h4><i data-lucide="check-circle"></i> Highlights</h4>
+                <ul class="detail-list">
+                  <li>
+                    True GitOps write-back: the pipeline itself commits updated
+                    manifests, so Git stays the single source of truth.
+                  </li>
+                  <li>
+                    Least-privilege RBAC: dedicated service account with scoped
+                    ClusterRoles for triggers, builds, and rollouts.
+                  </li>
+                  <li>
+                    Separate staging and production ArgoCD Applications with
+                    automated sync, pruning, and self-healing.
+                  </li>
+                  <li>
+                    Stateful MariaDB on NFS-backed persistent storage, wired to
+                    the API via ConfigMaps and Secrets.
+                  </li>
+                  <li>
+                    Observability: Prometheus alert rules (CPU,
+                    CrashLoopBackOff) routed to Slack via Alertmanager, Grafana
+                    dashboards, and centralized logging with Fluentd +
+                    OpenSearch.
+                  </li>
+                  <li>
+                    Vertical Pod Autoscaler + metrics-server for data-driven
+                    resource tuning of the backend.
+                  </li>
+                </ul>
               </div>
             </template>
           </article>

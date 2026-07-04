@@ -1170,6 +1170,13 @@ h1 span {
   color: var(--accent);
 }
 
+/* CI/CD Pipeline - Ámbar/Naranja (Identidad Tekton/Argo) */
+.pipeline-icon {
+  background: rgba(251, 146, 60, 0.1);
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  color: #fb923c;
+}
+
 .project-featured-header h3 {
   font-size: 1.25rem;
   font-weight: 700;
@@ -1413,6 +1420,13 @@ h1 span {
   letter-spacing: 0.1em;
   padding: 4px 12px;
   border-radius: 20px;
+}
+
+/* Variante secundaria: outline discreto, no compite con "Featured" */
+.project-card-tag.tag-alt {
+  background: var(--surface);
+  color: #fb923c;
+  border: 1px solid rgba(251, 146, 60, 0.45);
 }
 
 .project-card-head {

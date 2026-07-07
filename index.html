@@ -101,7 +101,11 @@
         <a class="cta" href="https://github.com/MarcoSoto1321" target="_blank">
           <i data-lucide="github"></i> GitHub
         </a>
-        <a class="cta" href="https://www.linkedin.com/in/" target="_blank">
+        <a
+          class="cta"
+          href="https://www.linkedin.com/in/marco-soto-rivera/"
+          target="_blank"
+        >
           <i data-lucide="linkedin"></i> LinkedIn
         </a>
         <a class="cta" href="mailto:marcosoto1321p@gmail.com">
@@ -246,7 +250,7 @@
               <div class="cert-badge cisco">SEC</div>
               <div class="cert-info">
                 <h4>CCNP Security</h4>
-                <p>Faculty of Engineering, UNAM · In Progress</p>
+                <p>Faculty of Engineering, UNAM · 2026</p>
               </div>
             </div>
           </div>
@@ -299,7 +303,7 @@
                 <h4>QA Automation Intern</h4>
                 <span class="timeline-company">CTIN · Mexico City</span>
               </div>
-              <span class="timeline-date">May 2025 – Nov 2025</span>
+              <span class="timeline-date">May 2025 – Dec 2025</span>
               <p>
                 Integrated automated test suites into Jenkins CI/CD pipelines.
                 Managed test environments across physical devices and web
@@ -320,7 +324,7 @@
                 <h4>Social Service Intern</h4>
                 <span class="timeline-company">Microsoft AI Lab · UNAM</span>
               </div>
-              <span class="timeline-date">June 2024 – Dec 2024</span>
+              <span class="timeline-date">Dec 2023 – Dec 2024</span>
               <p>
                 Network monitoring and maintenance for campus LAN. Internal
                 software development and perimeter equipment administration.
@@ -537,6 +541,13 @@
               <div class="detail-section">
                 <h4><i data-lucide="git-branch"></i> GitOps workflow</h4>
                 <ul class="detail-list">
+                  <li>
+                    <strong>CI with GitHub Actions:</strong> every push builds
+                    an ARM64 image tagged with the commit hash, seals
+                    cache-busting versions at build time, and writes the new tag
+                    back to the manifests repo — ArgoCD does the rest. Zero
+                    manual deploys.
+                  </li>
                   <li>
                     ArgoCD <strong>app-of-apps</strong> pattern: separate
                     Application sets for apps, infrastructure, and web apps, all

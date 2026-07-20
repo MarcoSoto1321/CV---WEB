@@ -1562,22 +1562,6 @@ h1 span {
   letter-spacing: 0.03em;
 }
 
-.modal-close {
-  margin-left: auto;
-  background: transparent;
-  border: none;
-  color: var(--text-muted);
-  font-size: 1.4rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 4px;
-  transition: color 0.2s;
-}
-
-.modal-close:hover {
-  color: var(--danger);
-}
-
 .modal-body {
   padding: 24px;
 }
@@ -1665,4 +1649,146 @@ body.modal-open {
   .modal-overlay {
     padding: 12px;
   }
+}
+
+/* ========================================
+   CV LANGUAGE DROPDOWN
+======================================== */
+.cta-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.cta-dropdown .cta {
+  cursor: pointer;
+}
+
+.cta-chevron {
+  width: 14px !important;
+  height: 14px !important;
+  transition: transform 0.2s ease;
+}
+
+.cta-dropdown.open .cta-chevron {
+  transform: rotate(180deg);
+}
+
+.cta-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 180px;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 6px;
+  z-index: 60;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+  animation: menuIn 0.16s ease;
+}
+
+@keyframes menuIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+.cta-menu a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.cta-menu a:hover,
+.cta-menu a:focus-visible {
+  background: rgba(0, 212, 170, 0.1);
+  color: var(--accent);
+  outline: none;
+}
+
+.lang-code {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 7px;
+  border-radius: 5px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+
+/* ========================================
+   MODAL — functional red traffic light
+======================================== */
+.dot-close {
+  cursor: pointer;
+  position: relative;
+  transition: filter 0.15s ease;
+}
+
+.dot-close:hover,
+.dot-close:focus-visible {
+  filter: brightness(1.25);
+  outline: none;
+}
+
+/* Show an "×" inside the red dot on hover of the whole dot group */
+.dot-close::after {
+  content: "×";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.terminal-dots:hover .dot-close::after,
+.dot-close:focus-visible::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-menu {
+    animation: none;
+  }
+  .cta-chevron {
+    transition: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-dropdown {
+    flex: 1 1 auto;
+  }
+  .cta-dropdown .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Header must outrank .tabs so the CV dropdown can overlay them.
+   Both were at z-index 10, and .tabs comes later in the DOM, so it won. */
+header {
+  z-index: 20;
 }

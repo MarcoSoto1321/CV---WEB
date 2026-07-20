@@ -6,10 +6,57 @@
 document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initStatLinks();
+  initCvDropdown();
   initCopyButtons();
   initAnimations();
   initProjectModal();
 });
+
+/**
+ * CV download dropdown (English / Spanish)
+ */
+function initCvDropdown() {
+  const wrapper = document.querySelector(".cta-dropdown");
+  if (!wrapper) return;
+
+  const toggle = wrapper.querySelector("#cvToggle");
+  const menu = wrapper.querySelector("#cvMenu");
+
+  function openMenu() {
+    wrapper.classList.add("open");
+    menu.removeAttribute("hidden");
+    toggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMenu() {
+    wrapper.classList.remove("open");
+    menu.setAttribute("hidden", "");
+    toggle.setAttribute("aria-expanded", "false");
+  }
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    wrapper.classList.contains("open") ? closeMenu() : openMenu();
+  });
+
+  // Close after picking a language
+  menu.querySelectorAll("a").forEach((a) => {
+    a.addEventListener("click", closeMenu);
+  });
+
+  // Click outside closes it
+  document.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) closeMenu();
+  });
+
+  // Escape closes it
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && wrapper.classList.contains("open")) {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+}
 
 /**
  * Make hero stats navigate to their related tab/section
@@ -132,24 +179,27 @@ function initAnimations() {
     });
   }, observerOptions);
 
-  // Observe elements with animation
-  const animatedElements = document.querySelectorAll(
-    ".skill-group, .stat, .project-featured, .security-item, .timeline-item, .cert-card, .education-box",
-  );
-  animatedElements.forEach((el, index) => {
-    el.style.opacity = "0";
-    el.style.transform = "translateY(20px)";
-    el.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
-    observer.observe(el);
+  // Observe elements with animation.
+  // Stagger is computed PER SECTION (and capped) so switching tabs feels
+  // instant — a global index made later sections wait 1.5s+ before appearing.
+  const ANIM_SELECTOR =
+    ".skill-group, .stat, .project-card, .security-item, .timeline-item, .cert-card, .education-box";
+
+  document.querySelectorAll("header, section.section").forEach((container) => {
+    container.querySelectorAll(ANIM_SELECTOR).forEach((el, index) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      const delay = Math.min(index * 0.06, 0.36);
+      el.style.transition = `opacity 0.4s ease ${delay}s, transform 0.4s ease ${delay}s`;
+      observer.observe(el);
+    });
   });
 
   // Trigger initial animations for active section
   setTimeout(() => {
     const activeSection = document.querySelector(".section.active");
     if (activeSection) {
-      const elements = activeSection.querySelectorAll(
-        ".skill-group, .stat, .project-featured, .security-item, .timeline-item, .cert-card, .education-box",
-      );
+      const elements = activeSection.querySelectorAll(ANIM_SELECTOR);
       elements.forEach((el) => {
         el.style.opacity = "1";
         el.style.transform = "translateY(0)";
@@ -177,7 +227,7 @@ function initProjectModal() {
   if (!overlay) return;
 
   const body = document.getElementById("modalBody");
-  const closeBtn = overlay.querySelector(".modal-close");
+  const redDot = overlay.querySelector(".dot-close");
   const cards = document.querySelectorAll(".project-card");
   let lastFocused = null;
 
@@ -196,7 +246,7 @@ function initProjectModal() {
     // Re-render Lucide icons injected into the modal
     if (window.lucide) lucide.createIcons();
 
-    closeBtn.focus();
+    if (redDot) redDot.focus();
   }
 
   function closeModal() {
@@ -217,7 +267,16 @@ function initProjectModal() {
     });
   });
 
-  closeBtn.addEventListener("click", closeModal);
+  // The red traffic light is the close control (macOS behaviour)
+  if (redDot) {
+    redDot.addEventListener("click", closeModal);
+    redDot.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        closeModal();
+      }
+    });
+  }
 
   // Click on the backdrop (not the modal panel) closes it
   overlay.addEventListener("click", (e) => {

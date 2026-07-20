@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=3" />
+    <link rel="stylesheet" href="css/styles.css?v=5" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <link
       rel="apple-touch-icon"
@@ -95,9 +95,25 @@
 
       <!-- CTAs -->
       <div class="cta-row">
-        <a class="cta cta-primary" href="assets/cv/marco-soto-cv.pdf" download>
-          <i data-lucide="download"></i> Download CV
-        </a>
+        <div class="cta-dropdown">
+          <button
+            class="cta cta-primary"
+            id="cvToggle"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <i data-lucide="download"></i> Download CV
+            <i data-lucide="chevron-down" class="cta-chevron"></i>
+          </button>
+          <div class="cta-menu" id="cvMenu" hidden>
+            <a href="assets/cv/marco-soto-cv-en.pdf" download>
+              <span class="lang-code">EN</span> English
+            </a>
+            <a href="assets/cv/marco-soto-cv-es.pdf" download>
+              <span class="lang-code">ES</span> Español
+            </a>
+          </div>
+        </div>
         <a class="cta" href="https://github.com/MarcoSoto1321" target="_blank">
           <i data-lucide="github"></i> GitHub
         </a>
@@ -195,12 +211,12 @@
             <li><strong>Location:</strong> Mexico City · open to remote</li>
             <li><strong>Education:</strong> B.S. Computer Engineering, UNAM</li>
             <li>
-              <strong>Core stack:</strong> Kubernetes · Docker · Jenkins · Linux
-              · Cloudflare
+              <strong>Core stack:</strong> Kubernetes (K3s) · ArgoCD · Docker ·
+              Linux · Cloudflare
             </li>
             <li>
-              <strong>Languages:</strong> Spanish (native) · English
-              (professional)
+              <strong>Languages:</strong> Spanish (native) · English (B1 — C1 in
+              reading &amp; listening)
             </li>
           </ul>
         </div>
@@ -242,7 +258,7 @@
             <div class="cert-card">
               <div class="cert-badge cisco">ENCOR</div>
               <div class="cert-info">
-                <h4>CCNP Enterprise — ENCORE</h4>
+                <h4>CCNP Enterprise — ENCOR &amp; ENARSI</h4>
                 <p>Faculty of Engineering, UNAM · 2025</p>
               </div>
             </div>
@@ -300,19 +316,22 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <h4>QA Automation Intern</h4>
+                <h4>QA Automation Specialist</h4>
                 <span class="timeline-company">CTIN · Mexico City</span>
               </div>
               <span class="timeline-date">May 2025 – Dec 2025</span>
               <p>
-                Integrated automated test suites into Jenkins CI/CD pipelines.
-                Managed test environments across physical devices and web
-                platforms.
+                Integrated automated test suites into Jenkins CI/CD pipelines,
+                significantly reducing manual validation efforts. Diagnosed
+                defects across web and mobile environments and documented
+                tracking entries using Agile tools.
               </p>
               <div class="timeline-tags">
                 <span class="tag">Jenkins</span>
                 <span class="tag">CI/CD</span>
                 <span class="tag">Test Automation</span>
+                <span class="tag">Jira</span>
+                <span class="tag">Zephyr</span>
               </div>
             </div>
           </div>
@@ -321,17 +340,22 @@
             <div class="timeline-marker"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <h4>Social Service Intern</h4>
+                <h4>IT Support &amp; Infrastructure Specialist</h4>
                 <span class="timeline-company">Microsoft AI Lab · UNAM</span>
               </div>
-              <span class="timeline-date">Dec 2023 – Dec 2024</span>
+              <span class="timeline-date"
+                >Dec 2023 – Dec 2024 · Social Service</span
+              >
               <p>
-                Network monitoring and maintenance for campus LAN. Internal
-                software development and perimeter equipment administration.
+                Resolved L1/L2 user and IT service incidents, alongside hardware
+                and compute equipment maintenance. Diagnosed network issues
+                (L2/L3 troubleshooting via CLI) across LAN and perimeter
+                devices, while managing network monitoring tools.
               </p>
               <div class="timeline-tags">
+                <span class="tag">L1/L2 Support</span>
+                <span class="tag">L2/L3 Troubleshooting</span>
                 <span class="tag">Networking</span>
-                <span class="tag">LAN</span>
                 <span class="tag">Monitoring</span>
               </div>
             </div>
@@ -372,10 +396,27 @@
             <div class="skill-tags">
               <span class="skill-chip">ArgoCD</span>
               <span class="skill-chip">GitOps</span>
-              <span class="skill-chip">Jenkins</span>
+              <span class="skill-chip">Tekton</span>
+              <span class="skill-chip">Kaniko</span>
               <span class="skill-chip">GitHub Actions</span>
+              <span class="skill-chip">Jenkins</span>
+              <span class="skill-chip">Ansible</span>
               <span class="skill-chip">Watchtower</span>
-              <span class="skill-chip">Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-header">
+              <i data-lucide="activity"></i>
+              <h3>Observability</h3>
+            </div>
+            <div class="skill-tags">
+              <span class="skill-chip">Prometheus</span>
+              <span class="skill-chip">Grafana</span>
+              <span class="skill-chip">Loki</span>
+              <span class="skill-chip">Alertmanager</span>
+              <span class="skill-chip">Fluentd</span>
+              <span class="skill-chip">OpenSearch</span>
             </div>
           </div>
 
@@ -402,21 +443,27 @@
             <div class="skill-tags">
               <span class="skill-chip">Fail2Ban</span>
               <span class="skill-chip">SSH Hardening</span>
+              <span class="skill-chip">SELinux</span>
               <span class="skill-chip">Network Isolation</span>
               <span class="skill-chip">cert-manager</span>
               <span class="skill-chip">TLS / Let's Encrypt</span>
+              <span class="skill-chip">RBAC</span>
             </div>
           </div>
 
           <div class="skill-group">
             <div class="skill-group-header">
               <i data-lucide="terminal"></i>
-              <h3>OS &amp; Platforms</h3>
+              <h3>Systems &amp; Programming</h3>
             </div>
             <div class="skill-tags">
-              <span class="skill-chip">Linux</span>
+              <span class="skill-chip">Linux (Arch/Rocky)</span>
               <span class="skill-chip">Arch Linux ARM</span>
               <span class="skill-chip">Raspberry Pi</span>
+              <span class="skill-chip">Bash</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Go</span>
+              <span class="skill-chip">NFS</span>
             </div>
           </div>
         </div>
@@ -804,14 +851,17 @@
       >
         <div class="modal-bar">
           <span class="terminal-dots">
-            <span class="dot dot-red"></span>
+            <span
+              class="dot dot-red dot-close"
+              role="button"
+              tabindex="0"
+              aria-label="Close details"
+              title="Close"
+            ></span>
             <span class="dot dot-amber"></span>
             <span class="dot dot-green"></span>
           </span>
           <span class="modal-bar-title">project — details</span>
-          <button class="modal-close" aria-label="Close details">
-            &times;
-          </button>
         </div>
         <div class="modal-body" id="modalBody"></div>
       </div>
@@ -830,7 +880,7 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=3"></script>
+    <script src="js/main.js?v=5"></script>
     <script>
       lucide.createIcons();
     </script>

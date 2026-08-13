@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=5" />
+    <link rel="stylesheet" href="css/styles.css?v=6" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <link
       rel="apple-touch-icon"
@@ -58,8 +58,8 @@
           tabindex="0"
           aria-label="Go to Experience"
         >
-          <span class="stat-value">2+</span>
-          <span class="stat-label">Years hands-on</span>
+          <span class="stat-value">3+</span>
+          <span class="stat-label">Years in infra</span>
         </div>
         <div
           class="stat"
@@ -78,8 +78,8 @@
           tabindex="0"
           aria-label="Go to Education"
         >
-          <span class="stat-value">3</span>
-          <span class="stat-label">Certifications</span>
+          <span class="stat-value">6</span>
+          <span class="stat-label">Verifiable credentials</span>
         </div>
         <div
           class="stat"
@@ -115,14 +115,34 @@
           </div>
         </div>
         <a class="cta" href="https://github.com/MarcoSoto1321" target="_blank">
-          <i data-lucide="github"></i> GitHub
+          <svg
+            class="brand-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            />
+          </svg>
+          GitHub
         </a>
         <a
           class="cta"
           href="https://www.linkedin.com/in/marco-soto-rivera/"
           target="_blank"
         >
-          <i data-lucide="linkedin"></i> LinkedIn
+          <svg
+            class="brand-icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"
+            />
+          </svg>
+          LinkedIn
         </a>
         <a class="cta" href="mailto:marcosoto1321p@gmail.com">
           <i data-lucide="mail"></i> Email
@@ -229,7 +249,7 @@
             <span class="icon"><i data-lucide="graduation-cap"></i></span>
             Education
           </h2>
-          <p>Academic background, training &amp; certifications</p>
+          <p>Degree, Cisco training &amp; verifiable credentials</p>
         </div>
 
         <div class="certs-section">
@@ -237,67 +257,173 @@
           <div class="education-box">
             <div class="edu-content">
               <h4>B.S. in Computer Engineering</h4>
-              <p>Faculty of Engineering, UNAM · 2021 – 2026</p>
+              <p>Faculty of Engineering, UNAM · 2021 – 2026 · Degree pending</p>
             </div>
           </div>
         </div>
 
+        <!-- ===== University Cisco training (no external issuer) ===== -->
         <div class="certs-section">
           <h3>
-            <i data-lucide="book-open"></i> Certification Training &amp;
-            Diplomas
+            <i data-lucide="book-open"></i> Cisco Training — Faculty of
+            Engineering, UNAM
           </h3>
+          <p class="certs-note">
+            University diploma programs and coursework — not Cisco vendor
+            certification exams.
+          </p>
           <div class="certs-grid">
             <div class="cert-card">
-              <div class="cert-badge cisco">CCNA</div>
+              <div class="cert-badge unam">DIPL</div>
               <div class="cert-info">
-                <h4>Cisco CCNA — Routing &amp; Switching</h4>
-                <p>Faculty of Engineering, UNAM · 2024</p>
+                <h4>CCNP Enterprise Diploma</h4>
+                <p>ENCOR &amp; ENARSI · 2025</p>
+                <!-- TODO: add diploma preview — see instructions -->
               </div>
             </div>
             <div class="cert-card">
-              <div class="cert-badge cisco">ENCOR</div>
+              <div class="cert-badge unam">DIPL</div>
               <div class="cert-info">
-                <h4>CCNP Enterprise — ENCOR &amp; ENARSI</h4>
-                <p>Faculty of Engineering, UNAM · 2025</p>
+                <h4>CCNP Security Diploma</h4>
+                <p>Jun 2026</p>
+                <span class="cert-pending">Diploma in process</span>
               </div>
             </div>
             <div class="cert-card">
-              <div class="cert-badge cisco">SEC</div>
+              <div class="cert-badge unam">CURSO</div>
               <div class="cert-info">
-                <h4>CCNP Security</h4>
-                <p>Faculty of Engineering, UNAM · 2026</p>
+                <h4>CCNA Certification-Prep Course</h4>
+                <p>2024</p>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- ===== Credentials with third-party verification ===== -->
         <div class="certs-section">
-          <h3><i data-lucide="award"></i> Certifications</h3>
+          <h3><i data-lucide="badge-check"></i> Verifiable Credentials</h3>
+          <p class="certs-note">
+            Every card below links to the issuer's own verification page.
+          </p>
           <div class="certs-grid">
+            <a
+              class="cert-card"
+              href="https://www.credly.com/badges/e28c391c-090b-424d-9333-a02b2632cdd4/public_url"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="cert-badge badge-art">
+                <img
+                  src="assets/badges/ccna-itn.webp"
+                  alt="Cisco Networking Academy badge: CCNA Introduction to Networks"
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h4>CCNA: Introduction to Networks</h4>
+                <p>Cisco Networking Academy · May 2025</p>
+                <span class="cert-verify"
+                  >Verify on Credly
+                  <i data-lucide="external-link"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="cert-card"
+              href="https://www.credly.com/badges/1216720e-3030-4b1b-81cd-71fb771ad7a7/public_url"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="cert-badge badge-art">
+                <img
+                  src="assets/badges/ccna-srwe.webp"
+                  alt="Cisco Networking Academy badge: CCNA Switching, Routing and Wireless Essentials"
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h4>CCNA: Switching, Routing &amp; Wireless Essentials</h4>
+                <p>Cisco Networking Academy · May 2025</p>
+                <span class="cert-verify"
+                  >Verify on Credly
+                  <i data-lucide="external-link"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="cert-card"
+              href="https://www.credly.com/badges/17c9abda-efad-4dc5-96f3-bd787d313204/public_url"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="cert-badge badge-art">
+                <img
+                  src="assets/badges/certiprof-capc.webp"
+                  alt="CertiProf badge: Cybersecurity Awareness Professional Certification"
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h4>Cybersecurity Awareness (CAPC)</h4>
+                <p>CertiProf · Valid through Nov 2027</p>
+                <span class="cert-verify"
+                  >Verify on Credly
+                  <i data-lucide="external-link"></i>
+                </span>
+              </div>
+            </a>
+
+            <a
+              class="cert-card"
+              href="https://learn.nvidia.com/certificates?id=tdaCFAgYQuyljlwZaSRKaQ"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="cert-badge nvidia">NVDA</div>
+              <div class="cert-info">
+                <h4>Fundamentals of Deep Learning</h4>
+                <p>NVIDIA Deep Learning Institute · Nov 2025</p>
+                <span class="cert-verify"
+                  >Verify with NVIDIA
+                  <i data-lucide="external-link"></i>
+                </span>
+              </div>
+            </a>
+
+            <!-- TODO: add href once the certificate is recovered from the old account -->
             <div class="cert-card">
               <div class="cert-badge nvidia">NVDA</div>
               <div class="cert-info">
-                <h4>NVIDIA DLI</h4>
-                <p>
-                  Fundamentals of Deep Learning · Knowledge Retrieval in LLMs
-                </p>
+                <h4>Adding New Knowledge to LLMs</h4>
+                <p>NVIDIA Deep Learning Institute · Nov 2025</p>
+                <span class="cert-pending">Verification link pending</span>
               </div>
             </div>
-            <div class="cert-card">
-              <div class="cert-badge certiprof">CERT</div>
+
+            <a
+              class="cert-card"
+              href="https://www.scrumstudy.com/certification/verify?type=SFC&amp;number=1001768"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="cert-badge scrum-badge">SFC</div>
               <div class="cert-info">
-                <h4>Certiprof</h4>
-                <p>Cybersecurity Awareness (CAPC) · Remote Work Professional</p>
+                <h4>Scrum Fundamentals Certified</h4>
+                <p>ScrumStudy · Oct 2023 · Lifetime</p>
+                <span class="cert-verify"
+                  >Verify with ScrumStudy
+                  <i data-lucide="external-link"></i>
+                </span>
               </div>
-            </div>
-            <div class="cert-card">
-              <div class="cert-badge scrum-badge">SCRM</div>
-              <div class="cert-info">
-                <h4>Scrum Study</h4>
-                <p>Scrum Fundamentals Certified</p>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -308,37 +434,345 @@
           <h2>
             <span class="icon"><i data-lucide="briefcase"></i></span> Experience
           </h2>
-          <p>Professional background in QA automation &amp; networking</p>
+          <p>
+            Infrastructure, networking &amp; automation. Click any role for the
+            full breakdown — the PDF version is the summary.
+          </p>
         </div>
 
         <div class="experience-timeline">
+          <!-- ===== UNAM — Network & Server Infrastructure (current) ===== -->
           <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-content">
+            <div
+              class="timeline-content"
+              data-detail
+              data-detail-title="~/experience $ cat unam-infra.md"
+            >
               <div class="timeline-header">
-                <h4>QA Automation Specialist</h4>
+                <h4>Network &amp; Server Infrastructure</h4>
+                <span class="timeline-company"
+                  >Faculty of Engineering, UNAM</span
+                >
+              </div>
+              <span class="timeline-date">Aug 2026 – Present</span>
+              <p>
+                Assigned to network device configuration and server deployment
+                across faculty infrastructure, including standing up a new DNS
+                service for the faculty.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">DNS</span>
+                <span class="tag">Cisco IOS</span>
+                <span class="tag">Linux Servers</span>
+                <span class="tag">Networking</span>
+              </div>
+
+              <span class="detail-cue">
+                <span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i>
+              </span>
+
+              <template class="detail-content">
+                <div class="detail-head">
+                  <div class="card-icon rpi-icon">
+                    <i data-lucide="server"></i>
+                  </div>
+                  <div>
+                    <h3>Network &amp; Server Infrastructure</h3>
+                    <p class="project-subtitle">
+                      Faculty of Engineering, UNAM · Aug 2026 – Present
+                    </p>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="target"></i> Scope</h4>
+                  <p>
+                    A generalist infrastructure role across several concurrent
+                    faculty projects — network equipment configuration, server
+                    deployment, and endpoint provisioning. Recently started, so
+                    what follows is the assigned scope rather than completed
+                    work; this entry gets updated as each piece ships.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="list-checks"></i> Assigned work</h4>
+                  <ul class="detail-list">
+                    <li>
+                      <strong>Faculty DNS service:</strong> design and deploy a
+                      new authoritative DNS server for the faculty.
+                    </li>
+                    <li>
+                      <strong>Cisco network equipment:</strong> configuration
+                      and maintenance of switching and routing infrastructure.
+                    </li>
+                    <li>
+                      <strong>Server deployment:</strong> provisioning and
+                      configuration of Linux servers for internal services.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="link"></i> Why this connects</h4>
+                  <p>
+                    The DNS assignment maps directly onto two years of running
+                    Pi-hole with Unbound as a recursive resolver in my home lab
+                    — deliberately kept outside the Kubernetes cluster so name
+                    resolution survives a cluster failure. The Cisco work builds
+                    on CCNA and CCNP Enterprise training plus hands-on switch
+                    configuration during my social service.
+                  </p>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- ===== Brive — Automation ===== -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div
+              class="timeline-content"
+              data-detail
+              data-detail-title="~/experience $ cat brive.md"
+            >
+              <div class="timeline-header">
+                <h4>Automation Executive — Business Intelligence</h4>
+                <span class="timeline-company">Brive</span>
+              </div>
+              <span class="timeline-date">Jun 2026 – Present</span>
+              <p>
+                Build and maintain automated business workflows in Salesforce,
+                and maintain two AI agents running in the company platform.
+              </p>
+              <div class="timeline-tags">
+                <span class="tag">Salesforce</span>
+                <span class="tag">Workflow Automation</span>
+                <span class="tag">AI Agents</span>
+                <span class="tag">n8n</span>
+              </div>
+
+              <span class="detail-cue">
+                <span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i>
+              </span>
+
+              <template class="detail-content">
+                <div class="detail-head">
+                  <div class="card-icon work-icon">
+                    <i data-lucide="workflow"></i>
+                  </div>
+                  <div>
+                    <h3>Automation Executive — Business Intelligence</h3>
+                    <p class="project-subtitle">Brive · Jun 2026 – Present</p>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="target"></i> What the role is</h4>
+                  <p>
+                    Automating internal business processes so they run without
+                    manual handoffs. The work splits between Salesforce flow
+                    automation and ongoing maintenance of two AI agents already
+                    live in the company platform.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="check-circle"></i> Focus areas</h4>
+                  <ul class="detail-list">
+                    <li>
+                      <strong>Salesforce automation:</strong> building flows
+                      that replace manual, repeated steps in business processes.
+                    </li>
+                    <li>
+                      <strong>AI agent maintenance:</strong> keeping two
+                      production agents running and iterating on their behaviour
+                      — debugging live systems rather than prototyping.
+                    </li>
+                    <li>
+                      <strong>n8n:</strong> light exposure here; most of my
+                      hands-on n8n time comes from self-hosting it on my own
+                      server.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4>
+                    <i data-lucide="link"></i> How it fits the DevOps track
+                  </h4>
+                  <p>
+                    Different domain, same core discipline: find the manual step
+                    that happens over and over, make it run on its own, and keep
+                    it running once it is in production. Operating live AI
+                    agents in particular is closer to on-call ownership than to
+                    building something and handing it off.
+                  </p>
+                </div>
+              </template>
+            </div>
+          </div>
+
+          <!-- ===== CTIN — Test Automation Lead ===== -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div
+              class="timeline-content"
+              data-detail
+              data-detail-title="~/experience $ cat ctin.md"
+            >
+              <div class="timeline-header">
+                <h4>Test Automation Lead — iOS &amp; Android</h4>
                 <span class="timeline-company">CTIN · Mexico City</span>
               </div>
               <span class="timeline-date">May 2025 – Dec 2025</span>
               <p>
-                Integrated automated test suites into Jenkins CI/CD pipelines,
-                significantly reducing manual validation efforts. Diagnosed
-                defects across web and mobile environments and documented
-                tracking entries using Agile tools.
+                Promoted from intern after two months. Rebuilt an abandoned
+                mobile automation suite (~250 cases) that the team had stopped
+                trusting, bringing the smoke test back from a full manual week
+                to three days automated.
               </p>
               <div class="timeline-tags">
-                <span class="tag">Jenkins</span>
-                <span class="tag">CI/CD</span>
+                <span class="tag">Selenium</span>
+                <span class="tag">Cucumber</span>
+                <span class="tag">Java</span>
+                <span class="tag">Ruby</span>
                 <span class="tag">Test Automation</span>
                 <span class="tag">Jira</span>
                 <span class="tag">Zephyr</span>
               </div>
+
+              <span class="detail-cue">
+                <span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i>
+              </span>
+
+              <template class="detail-content">
+                <div class="detail-head">
+                  <div class="card-icon pipeline-icon">
+                    <i data-lucide="smartphone"></i>
+                  </div>
+                  <div>
+                    <h3>Test Automation Lead — iOS &amp; Android</h3>
+                    <p class="project-subtitle">
+                      CTIN · Mexico City · May – Dec 2025
+                    </p>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="target"></i> The situation</h4>
+                  <p>
+                    I joined as an intern on the iOS stream. Two months in, the
+                    team lead left and I was moved up to lead it; shortly after
+                    I picked up the Android project as well — two mobile streams
+                    with one automation engineer each.
+                  </p>
+                  <p style="margin-top: 12px">
+                    An automated suite already existed, but nobody used it. The
+                    smoke test was ~250 cases split into roughly 20 runs, one
+                    per app section, some taking up to 40 minutes. They failed
+                    often enough that the previous lead had written the suite
+                    off and gone back to running the smoke test by hand — a full
+                    week of manual work per cycle.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="wrench"></i> What I did about it</h4>
+                  <ul class="detail-list">
+                    <li>
+                      <strong
+                        >Diagnosed the failures as design problems,</strong
+                      >
+                      not flaky infrastructure. The suite was unreliable because
+                      of how it was written, so I refactored rather than adding
+                      retries on top.
+                    </li>
+                    <li>
+                      <strong>Removed duplicated logic:</strong> each flow had
+                      three or four functions doing the same thing. I
+                      consolidated them behind a single shared instance so
+                      driver and session state stopped diverging between runs.
+                    </li>
+                    <li>
+                      <strong
+                        >Replaced deep if-chains with proper data
+                        structures.</strong
+                      >
+                      Control flow was almost entirely conditionals, which made
+                      the code both slow and impossible to read — the main
+                      reason nobody wanted to debug a failure.
+                    </li>
+                    <li>
+                      <strong>Automated the smoke test itself,</strong> which
+                      had been running manually, and restored the team's
+                      confidence in the suite.
+                    </li>
+                    <li>
+                      <strong>Handed it over properly:</strong> trained the
+                      incoming leads on the refactored suite and tooling before
+                      leaving.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="trending-up"></i> Result</h4>
+                  <p>
+                    The validation cycle went from a full manual week to three
+                    days in the worst case — the suite went back into service
+                    instead of being bypassed.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="layers"></i> Stack</h4>
+                  <div class="project-tech">
+                    <span class="skill-chip">Selenium</span>
+                    <span class="skill-chip">Cucumber</span>
+                    <span class="skill-chip">Java (iOS)</span>
+                    <span class="skill-chip">Ruby (Android)</span>
+                    <span class="skill-chip">Jira</span>
+                    <span class="skill-chip">Zephyr</span>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="git-branch"></i> CI evaluation</h4>
+                  <p>
+                    I evaluated Jenkins to orchestrate the suites and built a
+                    proof of concept against the project. It did not reach
+                    production before my contract ended.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="message-circle"></i> What was hardest</h4>
+                  <p>
+                    Not the code — coordinating two projects at once. It was my
+                    first time leading anything, and keeping both streams moving
+                    forced me to get deliberate about how I structured my own
+                    time and how I communicated across teams. If I did it again
+                    I would measure runtime and failure rates from day one
+                    instead of reconstructing the improvement afterwards.
+                  </p>
+                </div>
+              </template>
             </div>
           </div>
 
+          <!-- ===== UNAM — Social Service ===== -->
           <div class="timeline-item">
             <div class="timeline-marker"></div>
-            <div class="timeline-content">
+            <div
+              class="timeline-content"
+              data-detail
+              data-detail-title="~/experience $ cat unam-social-service.md"
+            >
               <div class="timeline-header">
                 <h4>IT Support &amp; Infrastructure Specialist</h4>
                 <span class="timeline-company">Microsoft AI Lab · UNAM</span>
@@ -347,17 +781,118 @@
                 >Dec 2023 – Dec 2024 · Social Service</span
               >
               <p>
-                Resolved L1/L2 user and IT service incidents, alongside hardware
-                and compute equipment maintenance. Diagnosed network issues
-                (L2/L3 troubleshooting via CLI) across LAN and perimeter
-                devices, while managing network monitoring tools.
+                Generalist infrastructure role: L1/L2 support, Linux lab
+                provisioning, Cisco switch configuration, and a full physical
+                network rewire of one building — plus internal software still in
+                use today.
               </p>
               <div class="timeline-tags">
+                <span class="tag">Cisco Switching</span>
+                <span class="tag">Structured Cabling</span>
+                <span class="tag">Linux</span>
                 <span class="tag">L1/L2 Support</span>
-                <span class="tag">L2/L3 Troubleshooting</span>
-                <span class="tag">Networking</span>
-                <span class="tag">Monitoring</span>
+                <span class="tag">Web Development</span>
               </div>
+
+              <span class="detail-cue">
+                <span class="vm-prompt">$</span> ./view-details
+                <i data-lucide="arrow-right"></i>
+              </span>
+
+              <template class="detail-content">
+                <div class="detail-head">
+                  <div class="card-icon work-icon">
+                    <i data-lucide="network"></i>
+                  </div>
+                  <div>
+                    <h3>IT Support &amp; Infrastructure Specialist</h3>
+                    <p class="project-subtitle">
+                      Microsoft AI Lab, UNAM · Dec 2023 – Dec 2024 · Social
+                      Service
+                    </p>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="target"></i> Overview</h4>
+                  <p>
+                    A year of whatever the faculty needed — which turned out to
+                    be the broadest technical exposure I have had. Physical
+                    networking, Linux administration, hardware maintenance, and
+                    internal application development, often in the same week.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4>
+                    <i data-lucide="network"></i> Networking &amp; physical
+                    infrastructure
+                  </h4>
+                  <ul class="detail-list">
+                    <li>
+                      <strong
+                        >Rewired the physical network of an entire
+                        building</strong
+                      >
+                      — structured cabling from the ground up. Working at the
+                      physical layer changed how I think about failure domains
+                      and blast radius.
+                    </li>
+                    <li>
+                      Basic configuration of Cisco switches across LAN and
+                      perimeter devices.
+                    </li>
+                    <li>
+                      L2/L3 troubleshooting via CLI, using built-in diagnostic
+                      tooling and connectivity testing to isolate faults.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="terminal"></i> Systems &amp; support</h4>
+                  <ul class="detail-list">
+                    <li>
+                      Provisioned Linux workstations for teaching labs —
+                      installation, user accounts, and permission structures.
+                    </li>
+                    <li>
+                      Resolved L1/L2 incidents for faculty users and ran
+                      preventive maintenance on lab and compute hardware.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="code"></i> Software delivered</h4>
+                  <ul class="detail-list">
+                    <li>
+                      <strong>Digital Transformation division website</strong> —
+                      built and deployed; still live and in use today.
+                    </li>
+                    <li>
+                      <strong>Web login system</strong> for the faculty's
+                      administrative platform.
+                    </li>
+                    <li>
+                      <strong>Facial recognition deployment</strong> for the
+                      faculty's camera system — integrating third-party software
+                      with existing hardware.
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="link"></i> Why it still matters</h4>
+                  <p>
+                    Most people who arrive at Kubernetes have never touched the
+                    layer underneath it. Having cabled a building, configured
+                    the switches on top of that cabling, and provisioned the
+                    machines that hang off it gives me a concrete picture of
+                    what an abstraction is actually abstracting.
+                  </p>
+                </div>
+              </template>
             </div>
           </div>
         </div>
@@ -486,9 +1021,7 @@
           <article
             class="project-card is-featured"
             data-project="homelab"
-            tabindex="0"
-            role="button"
-            aria-haspopup="dialog"
+            data-detail-title="~/projects $ cat homelab.md"
           >
             <div class="project-card-tag">Featured</div>
 
@@ -526,7 +1059,7 @@
             </div>
 
             <!-- Hidden detail rendered inside the modal on click -->
-            <template class="project-detail">
+            <template class="detail-content">
               <div class="detail-head">
                 <div class="card-icon rpi-icon">
                   <i data-lucide="server"></i>
@@ -692,9 +1225,7 @@
           <article
             class="project-card"
             data-project="gitops-cicd"
-            tabindex="0"
-            role="button"
-            aria-haspopup="dialog"
+            data-detail-title="~/projects $ cat gitops-cicd.md"
           >
             <div class="project-card-tag tag-alt">GitOps</div>
 
@@ -732,7 +1263,7 @@
             </div>
 
             <!-- Hidden detail rendered inside the modal on click -->
-            <template class="project-detail">
+            <template class="detail-content">
               <div class="detail-head">
                 <div class="card-icon pipeline-icon">
                   <i data-lucide="workflow"></i>
@@ -841,7 +1372,7 @@
       </section>
     </main>
 
-    <!-- ============ PROJECT MODAL ============ -->
+    <!-- ============ DETAIL MODAL (shared: projects / experience / certs) ============ -->
     <div class="modal-overlay" id="projectModal" hidden>
       <div
         class="modal"
@@ -861,7 +1392,7 @@
             <span class="dot dot-amber"></span>
             <span class="dot dot-green"></span>
           </span>
-          <span class="modal-bar-title">project — details</span>
+          <span class="modal-bar-title" id="modalTitle">details</span>
         </div>
         <div class="modal-body" id="modalBody"></div>
       </div>
@@ -880,9 +1411,6 @@
       </div>
     </footer>
 
-    <script src="js/main.js?v=5"></script>
-    <script>
-      lucide.createIcons();
-    </script>
+    <script src="js/main.js?v=6"></script>
   </body>
 </html>

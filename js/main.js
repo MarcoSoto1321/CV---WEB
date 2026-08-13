@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", () => {
   initTabs();
   initStatLinks();
   initCvDropdown();
-  initCopyButtons();
   initAnimations();
-  initProjectModal();
+  initDetailModal();
+
+  // Render icons once, after the DOM is ready.
+  if (window.lucide) lucide.createIcons();
 });
 
 /**
@@ -39,17 +41,14 @@ function initCvDropdown() {
     wrapper.classList.contains("open") ? closeMenu() : openMenu();
   });
 
-  // Close after picking a language
   menu.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", closeMenu);
   });
 
-  // Click outside closes it
   document.addEventListener("click", (e) => {
     if (!wrapper.contains(e.target)) closeMenu();
   });
 
-  // Escape closes it
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && wrapper.classList.contains("open")) {
       closeMenu();
@@ -97,31 +96,15 @@ function initTabs() {
     tab.addEventListener("click", () => {
       const targetSection = tab.dataset.section;
 
-      // Remove active class from all tabs
       tabs.forEach((t) => t.classList.remove("active"));
-
-      // Add active class to clicked tab
       tab.classList.add("active");
 
-      // Hide all sections
-      sections.forEach((section) => {
-        section.classList.remove("active");
-      });
+      sections.forEach((section) => section.classList.remove("active"));
 
-      // Show target section
       const target = document.getElementById(targetSection);
-      if (target) {
-        target.classList.add("active");
-      }
+      if (target) target.classList.add("active");
     });
   });
-}
-
-/**
- * Initialize copy buttons for code blocks
- */
-function initCopyButtons() {
-  // Copy functionality is handled by inline onclick
 }
 
 /**
@@ -132,13 +115,11 @@ function copyToClipboard(button) {
   const codeBlock = button.parentElement.querySelector("code");
   if (!codeBlock) return;
 
-  // Get text content, preserving newlines but removing HTML
   const text = codeBlock.innerText;
 
   navigator.clipboard
     .writeText(text)
     .then(() => {
-      // Visual feedback
       const originalText = button.textContent;
       button.textContent = "Copied!";
       button.style.color = "var(--green)";
@@ -163,12 +144,7 @@ function copyToClipboard(button) {
  * Initialize scroll and hover animations
  */
 function initAnimations() {
-  // Add intersection observer for fade-in animations
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.1,
-  };
+  const observerOptions = { root: null, rootMargin: "0px", threshold: 0.1 };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -179,7 +155,6 @@ function initAnimations() {
     });
   }, observerOptions);
 
-  // Observe elements with animation.
   // Stagger is computed PER SECTION (and capped) so switching tabs feels
   // instant — a global index made later sections wait 1.5s+ before appearing.
   const ANIM_SELECTOR =
@@ -195,55 +170,108 @@ function initAnimations() {
     });
   });
 
-  // Trigger initial animations for active section
   setTimeout(() => {
     const activeSection = document.querySelector(".section.active");
-    if (activeSection) {
-      const elements = activeSection.querySelectorAll(ANIM_SELECTOR);
-      elements.forEach((el) => {
-        el.style.opacity = "1";
-        el.style.transform = "translateY(0)";
-      });
-    }
+    if (!activeSection) return;
+    activeSection.querySelectorAll(ANIM_SELECTOR).forEach((el) => {
+      el.style.opacity = "1";
+      el.style.transform = "translateY(0)";
+    });
   }, 100);
 }
 
-/**
- * Smooth scroll to section (utility function)
- * @param {string} sectionId - The ID of the section to scroll to
- */
-function scrollToSection(sectionId) {
-  const section = document.getElementById(sectionId);
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-  }
-}
+/* ============================================================
+   GENERIC DETAIL MODAL
+   ------------------------------------------------------------
+   Any element can open the modal. The declaration is the
+   presence of a <template class="detail-content"> inside it:
 
-/**
- * Initialize project cards → modal popup
- */
-function initProjectModal() {
+     <article class="project-card">
+       ...card face...
+       <template class="detail-content">...full detail...</template>
+     </article>
+
+   The trigger is the template's closest [data-detail] ancestor,
+   or its direct parent if there isn't one. Use [data-detail]
+   when the clickable area should be larger than the template's
+   immediate parent (e.g. a whole .timeline-item).
+
+   Optional attributes on the trigger:
+     data-detail-title  — text shown in the modal title bar
+                          (default: "details")
+
+   role/tabindex/aria-haspopup are applied automatically, so new
+   triggers only need the template.
+   ============================================================ */
+function initDetailModal() {
   const overlay = document.getElementById("projectModal");
   if (!overlay) return;
 
+  const panel = overlay.querySelector(".modal");
   const body = document.getElementById("modalBody");
+  const titleEl = document.getElementById("modalTitle");
   const redDot = overlay.querySelector(".dot-close");
-  const cards = document.querySelectorAll(".project-card");
+
   let lastFocused = null;
 
-  function openModal(card) {
-    const detail = card.querySelector("template.project-detail");
-    if (!detail) return;
+  const FOCUSABLE = [
+    "a[href]",
+    "button:not([disabled])",
+    "input:not([disabled])",
+    "select:not([disabled])",
+    "textarea:not([disabled])",
+    '[tabindex]:not([tabindex="-1"])',
+  ].join(",");
 
-    lastFocused = card;
+  /* ---- wire up every trigger ---- */
+  const templates = document.querySelectorAll(
+    "template.detail-content, template.project-detail",
+  );
+
+  templates.forEach((tpl) => {
+    const trigger = tpl.closest("[data-detail]") || tpl.parentElement;
+    if (!trigger) return;
+
+    trigger.classList.add("has-detail");
+    if (!trigger.hasAttribute("role")) trigger.setAttribute("role", "button");
+    if (!trigger.hasAttribute("tabindex"))
+      trigger.setAttribute("tabindex", "0");
+    trigger.setAttribute("aria-haspopup", "dialog");
+
+    trigger.addEventListener("click", (e) => {
+      // Let real links inside the card behave like links.
+      if (e.target.closest("a")) return;
+      openModal(trigger, tpl);
+    });
+
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      if (e.target.closest("a")) return;
+      e.preventDefault();
+      openModal(trigger, tpl);
+    });
+  });
+
+  /* ---- open / close ---- */
+  function openModal(trigger, tpl) {
+    lastFocused = trigger;
+
     body.innerHTML = "";
-    body.appendChild(detail.content.cloneNode(true));
+    body.appendChild(tpl.content.cloneNode(true));
 
-    overlay.classList.add("open");
+    if (titleEl) {
+      titleEl.textContent = trigger.dataset.detailTitle || "details";
+    }
+
     overlay.removeAttribute("hidden");
+    overlay.classList.add("open");
     document.body.classList.add("modal-open");
 
-    // Re-render Lucide icons injected into the modal
+    // Long detail panels: always start at the top.
+    body.scrollTop = 0;
+    overlay.scrollTop = 0;
+
+    // Re-render Lucide icons injected into the modal.
     if (window.lucide) lucide.createIcons();
 
     if (redDot) redDot.focus();
@@ -255,19 +283,10 @@ function initProjectModal() {
     document.body.classList.remove("modal-open");
     body.innerHTML = "";
     if (lastFocused) lastFocused.focus();
+    lastFocused = null;
   }
 
-  cards.forEach((card) => {
-    card.addEventListener("click", () => openModal(card));
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openModal(card);
-      }
-    });
-  });
-
-  // The red traffic light is the close control (macOS behaviour)
+  /* ---- close controls ---- */
   if (redDot) {
     redDot.addEventListener("click", closeModal);
     redDot.addEventListener("keydown", (e) => {
@@ -278,48 +297,76 @@ function initProjectModal() {
     });
   }
 
-  // Click on the backdrop (not the modal panel) closes it
+  // Backdrop click (not the panel) closes.
   overlay.addEventListener("click", (e) => {
     if (e.target === overlay) closeModal();
   });
 
-  // Escape closes it
+  /* ---- keyboard: escape + focus trap ---- */
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && overlay.classList.contains("open")) {
+    if (!overlay.classList.contains("open")) return;
+
+    if (e.key === "Escape") {
       closeModal();
+      return;
+    }
+
+    if (e.key !== "Tab") return;
+
+    // Keep focus inside the dialog while it's open.
+    const items = Array.from(panel.querySelectorAll(FOCUSABLE)).filter(
+      (el) => el.offsetParent !== null || el === document.activeElement,
+    );
+    if (!items.length) {
+      e.preventDefault();
+      return;
+    }
+
+    const first = items[0];
+    const last = items[items.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    } else if (!panel.contains(document.activeElement)) {
+      e.preventDefault();
+      first.focus();
     }
   });
 
-  // Expose for potential external use
   window.closeProjectModal = closeModal;
 }
 
 /**
- * Handle keyboard navigation for tabs
+ * Handle keyboard navigation for tabs.
+ * Only active while focus is inside the tab bar, so arrow keys
+ * don't hijack the page from anywhere else.
  */
 document.addEventListener("keydown", (e) => {
-  // Don't hijack arrow keys while the modal is open
+  if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+
   const modal = document.getElementById("projectModal");
   if (modal && modal.classList.contains("open")) return;
 
-  const tabs = document.querySelectorAll(".tab");
-  const activeTab = document.querySelector(".tab.active");
-  const activeIndex = Array.from(tabs).indexOf(activeTab);
+  const tabBar = document.querySelector(".tabs");
+  if (!tabBar || !tabBar.contains(document.activeElement)) return;
 
-  if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
-    let newIndex;
-    if (e.key === "ArrowRight") {
-      newIndex = (activeIndex + 1) % tabs.length;
-    } else {
-      newIndex = (activeIndex - 1 + tabs.length) % tabs.length;
-    }
-    tabs[newIndex].click();
-    tabs[newIndex].focus();
-  }
+  const tabs = document.querySelectorAll(".tab");
+  const activeIndex = Array.from(tabs).indexOf(
+    document.querySelector(".tab.active"),
+  );
+
+  const newIndex =
+    e.key === "ArrowRight"
+      ? (activeIndex + 1) % tabs.length
+      : (activeIndex - 1 + tabs.length) % tabs.length;
+
+  tabs[newIndex].click();
+  tabs[newIndex].focus();
 });
 
 // Make copyToClipboard available globally
 window.copyToClipboard = copyToClipboard;
-
-//Render Icons
-lucide.createIcons();

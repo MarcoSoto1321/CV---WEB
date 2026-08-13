@@ -1792,3 +1792,208 @@ body.modal-open {
 header {
   z-index: 20;
 }
+
+/* ========================================
+   GENERIC DETAIL TRIGGERS
+   Applied automatically by initDetailModal() to any element that
+   contains a <template class="detail-content">. Works for project
+   cards, timeline items and cert cards alike.
+======================================== */
+
+.has-detail {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.has-detail:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* .project-card already defines its own hover lift, so scope the
+   generic one to everything that isn't a project card. */
+.has-detail:not(.project-card):hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+/* Footer affordance — reuses the terminal prompt language of the
+   project cards so every detail trigger reads as the same gesture. */
+.detail-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap 0.2s ease;
+}
+
+.detail-cue .vm-prompt {
+  color: var(--text-muted);
+}
+
+.detail-cue i {
+  width: 14px;
+  height: 14px;
+}
+
+.has-detail:hover .detail-cue {
+  gap: 12px;
+}
+
+/* Cert cards are denser than timeline items */
+.cert-card.has-detail {
+  flex-wrap: wrap;
+}
+
+.cert-card.has-detail .detail-cue {
+  margin-top: 10px;
+  padding-top: 10px;
+  font-size: 0.72rem;
+}
+
+/* ---- Icon variants for the upcoming Experience / Education details ---- */
+.work-icon {
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  color: var(--accent3);
+}
+
+.cert-icon {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: var(--accent2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-detail,
+  .detail-cue {
+    transition: none;
+  }
+  .has-detail:not(.project-card):hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   CREDENTIALS — real badge art + external verification
+======================================== */
+
+/* Badge art replaces the text badge where the issuer provides one */
+.cert-badge.badge-art {
+  width: 56px;
+  height: 56px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.cert-badge.badge-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Text badges for credentials with no issuer artwork */
+.cert-badge.unam {
+  background: rgba(129, 140, 248, 0.1);
+  border: 1px solid rgba(129, 140, 248, 0.3);
+  color: var(--accent3);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  line-height: 1.15;
+}
+
+.cert-badge.scrum-badge {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--green);
+}
+
+/* A credential card that links out to the issuer for verification */
+a.cert-card {
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+a.cert-card:hover,
+a.cert-card:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+a.cert-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.cert-verify {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.cert-verify i {
+  width: 12px;
+  height: 12px;
+}
+
+a.cert-card:hover .cert-verify {
+  text-decoration: underline;
+}
+
+/* Credential earned but not yet linkable */
+.cert-pending {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Small clarifying note under a credential group heading */
+.certs-note {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: -8px 0 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.cert-card:hover,
+  a.cert-card:focus-visible {
+    transform: none;
+  }
+}
+
+/* ========================================
+   BRAND ICONS — inlined SVG
+   Lucide 1.0 removed all trademarked brand icons (GitHub, LinkedIn,
+   etc.), so these ship with the page instead of coming from a CDN.
+   Unlike Lucide's stroke-based icons, brand marks are fill-based.
+======================================== */
+.brand-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
+  stroke: none;
+}

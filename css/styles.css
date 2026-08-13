@@ -342,8 +342,26 @@ main {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.8rem;
   line-height: 1.8;
-  white-space: pre-wrap; /* Cambiado de 'pre' para mejor manejo de espacios */
-  text-align: left; /* Asegura el alineado a la izquierda */
+  /* Lines are real block elements (.line), so source indentation is never
+     rendered as text. Do NOT switch this back to pre/pre-wrap. */
+  white-space: normal;
+  text-align: left;
+}
+
+/* One rendered line of terminal output */
+.cmd .line {
+  display: block;
+}
+
+/* Blank line before a new section heading */
+.cmd .line.gap {
+  margin-top: 1.5em;
+}
+
+/* Wrapped lines hang under the arrow instead of resetting to the margin */
+.cmd .line:has(> .keyword) {
+  padding-left: 1.6em;
+  text-indent: -1.6em;
 }
 
 .cmd .prompt {

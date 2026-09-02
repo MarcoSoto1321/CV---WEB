@@ -1,22 +1,36 @@
 /* ========================================
    Marco Soto Portfolio - Dark Theme
    Font: JetBrains Mono
+   Paleta tomada del logo { M $ }:
+     cian #00e5ff  ·  rosa #ff3d6c  ·  blanco hielo #e6edf3
 ======================================== */
 
 /* CSS Variables */
 :root {
-  --bg: #0a0e1a;
-  --surface: #111827;
-  --surface2: #1a2235;
-  --border: #1e2d45;
-  --accent: #00d4aa;
-  --accent2: #f59e0b;
-  --accent3: #818cf8;
-  --danger: #ef4444;
-  --text: #e2e8f0;
-  --text-muted: #64748b;
-  --green: #22c55e;
-  --neon-green: #39ff14;
+  /* Base: escala de 4 pasos. La profundidad viene del valor, no del color */
+  --bg: #0a111c;
+  --surface: #111c2b; /* tarjetas */
+  --surface2: #1a2839; /* bloques dentro de una tarjeta */
+  --well: #070d16; /* hundido: terminales y codigo */
+  --border: #22344a;
+
+  /* Acentos del logo */
+  --accent: #00e5ff; /* cian: red, infra, estado "vivo" */
+  --accent2: #ff3d6c; /* rosa: datos, seguridad, enfasis */
+  --accent3: #9db4d0; /* hielo: etiquetas y apoyo, derivado del blanco */
+  --warn: #f5a524; /* ambar: notas y avisos, fuera de la marca a proposito */
+  --danger: #ff3d6c;
+
+  --text: #e6edf3; /* blanco exacto del logo */
+  --text-muted: #7d93a8;
+
+  /* "Online" pasa a ser cian: una sola familia para estado */
+  --green: #00e5ff;
+  --neon-green: #5ffbff;
+
+  /* Elevacion */
+  --shadow-card: 0 10px 24px rgba(0, 0, 0, 0.3);
+  --edge-top: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 /* Reset */
@@ -41,8 +55,8 @@ body {
   position: fixed;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   pointer-events: none;
   z-index: 0;
@@ -55,12 +69,25 @@ header {
   padding: 60px 40px 40px;
   text-align: center;
   border-bottom: 1px solid var(--border);
+  /* Luz de marca detras del hero: cian a la izquierda, rosa a la derecha.
+     Es la unica decoracion de color libre de toda la pagina. */
+  background:
+    radial-gradient(
+      620px 320px at 22% 0%,
+      rgba(0, 229, 255, 0.09),
+      transparent 70%
+    ),
+    radial-gradient(
+      560px 300px at 82% 10%,
+      rgba(255, 61, 108, 0.07),
+      transparent 70%
+    );
 }
 
 .header-badge {
   display: inline-block;
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--accent);
   font-size: 0.75rem;
   font-weight: 600;
@@ -100,8 +127,8 @@ h1 span {
 /* Tags */
 .tag {
   display: inline-block;
-  background: rgba(129, 140, 248, 0.1);
-  border: 1px solid rgba(129, 140, 248, 0.3);
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
   color: var(--accent3);
   font-size: 0.7rem;
   padding: 4px 10px;
@@ -141,7 +168,7 @@ h1 span {
 }
 
 .tab.active {
-  background: rgba(0, 212, 170, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   border-color: var(--accent);
   color: var(--accent);
 }
@@ -204,7 +231,7 @@ main {
 
 /* Architecture Diagram */
 .architecture-diagram {
-  background: var(--surface);
+  background: linear-gradient(180deg, #14212f 0%, #0e1826 100%);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 30px;
@@ -236,17 +263,17 @@ main {
 }
 
 .arch-isp {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(255, 61, 108, 0.1);
   border-color: var(--danger);
 }
 
 .arch-rpi {
-  background: rgba(0, 212, 170, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   border-color: var(--accent);
 }
 
 .arch-nginx {
-  background: rgba(129, 140, 248, 0.1);
+  background: rgba(157, 180, 208, 0.1);
   border-color: var(--accent3);
 }
 
@@ -286,8 +313,8 @@ main {
 
 /* Info Box */
 .info-box {
-  background: rgba(0, 212, 170, 0.05);
-  border: 1px solid rgba(0, 212, 170, 0.2);
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 24px;
@@ -320,7 +347,7 @@ main {
 
 /* Command Block */
 .cmd {
-  background: #0d1117;
+  background: var(--well);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 16px;
@@ -378,7 +405,7 @@ main {
   font-style: italic;
 }
 .cmd .output {
-  color: #94a3b8;
+  color: #93a9bf;
 }
 
 .cmd.inline {
@@ -426,6 +453,7 @@ main {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
+  box-shadow: var(--shadow-card), var(--edge-top);
   transition: border-color 0.2s;
 }
 
@@ -450,60 +478,63 @@ main {
   font-size: 1.5rem;
 }
 
-/* Vaultwarden - Turquesa/Cian (Identidad original) */
+/* Iconos de servicio: solo tres familias.
+   cian = red / trafico · rosa = seguridad y datos · hielo = automatizacion */
+
+/* Vaultwarden - credenciales */
 .vault-icon {
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.3);
-  color: #00d4aa; /* Agregado para igualar el estilo */
+  background: rgba(255, 61, 108, 0.1);
+  border: 1px solid rgba(255, 61, 108, 0.3);
+  color: var(--accent2);
 }
 
-/* Portfolio - Azul Lavanda/Indigo (Identidad original) */
+/* Portfolio - sitio propio */
 .portfolio-icon {
-  background: rgba(129, 140, 248, 0.1);
-  border: 1px solid rgba(129, 140, 248, 0.3);
-  color: #818cf8; /* Agregado para igualar el estilo */
+  background: rgba(255, 61, 108, 0.1);
+  border: 1px solid rgba(255, 61, 108, 0.3);
+  color: var(--accent2);
 }
 
-/* Nginx Proxy Manager - Verde Esmeralda (Seguridad/Proxy) */
+/* Nginx Proxy Manager - borde de red */
 .nginx-icon {
-  background: rgba(0, 150, 136, 0.1);
-  border: 1px solid rgba(0, 150, 136, 0.3);
-  color: #009688;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--accent);
 }
 
-/* Pi-hole - Rojo Frambuesa (Bloqueo/Escudo) */
+/* Pi-hole - bloqueo / filtrado */
 .pihole-icon {
-  background: rgba(233, 30, 99, 0.1);
-  border: 1px solid rgba(233, 30, 99, 0.3);
-  color: #e91e63;
+  background: rgba(255, 61, 108, 0.1);
+  border: 1px solid rgba(255, 61, 108, 0.3);
+  color: var(--accent2);
 }
 
-/* DuckDNS - Amarillo/Dorado (Web/DNS) */
+/* DuckDNS - resolucion de dominio */
 .duck-icon {
-  background: rgba(255, 193, 7, 0.1);
-  border: 1px solid rgba(255, 193, 7, 0.3);
-  color: #ffc107;
+  background: rgba(245, 165, 36, 0.1);
+  border: 1px solid rgba(245, 165, 36, 0.3);
+  color: var(--warn);
 }
 
-/* Watchtower - Azul Cian (Automatización) */
+/* Watchtower - automatizacion */
 .watchtower-icon {
-  background: rgba(0, 188, 212, 0.1);
-  border: 1px solid rgba(0, 188, 212, 0.3);
-  color: #00bcd4;
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
+  color: var(--accent3);
 }
 
-/* Telegram Bot - Azul Avión (Comunicación) */
+/* Telegram Bot - control remoto */
 .bot-icon {
-  background: rgba(33, 150, 243, 0.1);
-  border: 1px solid rgba(33, 150, 243, 0.3);
-  color: #2196f3;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--accent);
 }
 
-/* WireGuard - Blanco/Gris Azulado (Túnel/Red) */
+/* WireGuard - tunel / red */
 .vpn-icon {
-  background: rgba(200, 212, 230, 0.1);
-  border: 1px solid rgba(200, 212, 230, 0.3);
-  color: #c8d4e6;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--accent);
 }
 
 .card-status {
@@ -516,9 +547,9 @@ main {
 }
 
 .card-status.running {
-  background: rgba(34, 197, 94, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   color: var(--green);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  border: 1px solid rgba(0, 229, 255, 0.3);
 }
 
 .service-card h3 {
@@ -535,7 +566,8 @@ main {
 }
 
 .card-specs {
-  background: var(--surface2);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 16px;
@@ -596,8 +628,8 @@ main {
 }
 
 .security-icon.secure {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--green);
 }
 
@@ -652,6 +684,7 @@ main {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px;
+  box-shadow: var(--shadow-card), var(--edge-top);
 }
 
 .timeline-header {
@@ -671,7 +704,7 @@ main {
 .timeline-company {
   font-size: 0.75rem;
   color: var(--accent);
-  background: rgba(0, 212, 170, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   padding: 4px 10px;
   border-radius: 20px;
 }
@@ -721,6 +754,7 @@ main {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 16px;
+  box-shadow: var(--shadow-card), var(--edge-top);
 }
 
 .cert-badge {
@@ -736,18 +770,18 @@ main {
   letter-spacing: 0.05em;
 }
 
-/* Scrum Study - Color Naranja Brillante (Agilidad) */
+/* Scrum Study - hielo (formacion / metodologia) */
 .scrum-badge {
-  background: rgba(255, 87, 34, 0.1);
-  border: 1px solid rgba(255, 87, 34, 0.3);
-  color: #ff5722;
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
+  color: var(--accent3);
 }
 
-/* Cisco / CCNP - Color Azul Marino (Redes) */
+/* Cisco / CCNP - cian (redes) */
 .cisco-badge {
-  background: rgba(0, 188, 212, 0.1);
-  border: 1px solid rgba(0, 188, 212, 0.3);
-  color: #00bcd4;
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  color: var(--accent);
 }
 .header-description {
   max-width: 700px;
@@ -774,21 +808,21 @@ main {
 }
 
 .cert-badge.cisco {
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--accent);
 }
 
 .cert-badge.nvidia {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--green);
 }
 
 .cert-badge.certiprof {
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: var(--accent2);
+  background: rgba(245, 165, 36, 0.1);
+  border: 1px solid rgba(245, 165, 36, 0.3);
+  color: var(--warn);
 }
 
 .cert-info h4 {
@@ -809,6 +843,7 @@ main {
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 20px;
+  box-shadow: var(--shadow-card), var(--edge-top);
 }
 
 .education-box h3 {
@@ -878,7 +913,7 @@ footer {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--neon-green);
-  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
 }
 
 .footer-links {
@@ -1102,13 +1137,13 @@ h1 span {
 }
 
 .cta-primary {
-  background: rgba(0, 212, 170, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   border-color: var(--accent);
   color: var(--accent);
 }
 
 .cta-primary:hover {
-  background: rgba(0, 212, 170, 0.18);
+  background: rgba(0, 229, 255, 0.18);
 }
 
 /* Skills grid */
@@ -1172,7 +1207,7 @@ h1 span {
   border: 1px solid var(--accent);
   border-radius: 16px;
   padding: 28px;
-  box-shadow: 0 0 30px rgba(0, 212, 170, 0.06);
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.06);
 }
 
 .project-featured-tag {
@@ -1197,16 +1232,16 @@ h1 span {
 }
 
 .rpi-icon {
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--accent);
 }
 
-/* CI/CD Pipeline - Ámbar/Naranja (Identidad Tekton/Argo) */
+/* CI/CD Pipeline - ambar (Tekton/Argo) */
 .pipeline-icon {
-  background: rgba(251, 146, 60, 0.1);
-  border: 1px solid rgba(251, 146, 60, 0.3);
-  color: #fb923c;
+  background: rgba(245, 165, 36, 0.1);
+  border: 1px solid rgba(245, 165, 36, 0.3);
+  color: var(--warn);
 }
 
 .project-featured-header h3 {
@@ -1257,9 +1292,9 @@ h1 span {
   align-items: center;
   gap: 10px;
   font-size: 0.78rem;
-  color: var(--accent2);
-  background: rgba(245, 158, 11, 0.08);
-  border: 1px dashed rgba(245, 158, 11, 0.3);
+  color: var(--warn);
+  background: rgba(245, 165, 36, 0.08);
+  border: 1px dashed rgba(245, 165, 36, 0.3);
   border-radius: 8px;
   padding: 12px 14px;
 }
@@ -1272,8 +1307,8 @@ h1 span {
 
 /* cert-badge cisco already exists; ensure a fallback variant */
 .cert-badge.cisco {
-  background: rgba(0, 212, 170, 0.1);
-  border: 1px solid rgba(0, 212, 170, 0.3);
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--accent);
 }
 
@@ -1302,8 +1337,8 @@ h1 span {
    PROFILE TERMINAL — Quick Facts family
 ======================================== */
 .cmd-terminal {
-  background: rgba(0, 212, 170, 0.05);
-  border: 1px solid rgba(0, 212, 170, 0.2);
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   border-radius: 12px;
   padding: 0;
   overflow: hidden;
@@ -1314,8 +1349,8 @@ h1 span {
   align-items: center;
   gap: 12px;
   padding: 11px 16px;
-  background: rgba(0, 212, 170, 0.08);
-  border-bottom: 1px solid rgba(0, 212, 170, 0.15);
+  background: rgba(0, 229, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.15);
 }
 
 .terminal-dots {
@@ -1330,6 +1365,7 @@ h1 span {
   display: block;
 }
 
+/* Semaforo de macOS: es cromo de ventana, no marca */
 .dot-red {
   background: #ff5f56;
 }
@@ -1355,7 +1391,7 @@ h1 span {
 ======================================== */
 .tab-featured {
   position: relative;
-  border-color: rgba(0, 212, 170, 0.35);
+  border-color: rgba(0, 229, 255, 0.35);
 }
 
 .tab-pulse {
@@ -1370,13 +1406,13 @@ h1 span {
 
 @keyframes tabPulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(0, 212, 170, 0.5);
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.5);
   }
   70% {
-    box-shadow: 0 0 0 8px rgba(0, 212, 170, 0);
+    box-shadow: 0 0 0 8px rgba(0, 229, 255, 0);
   }
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 212, 170, 0);
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0);
   }
 }
 
@@ -1390,10 +1426,10 @@ h1 span {
 @keyframes cardBreathe {
   0%,
   100% {
-    box-shadow: 0 0 30px rgba(0, 212, 170, 0.06);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.06);
   }
   50% {
-    box-shadow: 0 0 45px rgba(0, 212, 170, 0.18);
+    box-shadow: 0 0 45px rgba(0, 229, 255, 0.18);
   }
 }
 
@@ -1457,8 +1493,8 @@ h1 span {
 /* Variante secundaria: outline discreto, no compite con "Featured" */
 .project-card-tag.tag-alt {
   background: var(--surface);
-  color: #fb923c;
-  border: 1px solid rgba(251, 146, 60, 0.45);
+  color: var(--warn);
+  border: 1px solid rgba(245, 165, 36, 0.45);
 }
 
 .project-card-head {
@@ -1529,7 +1565,7 @@ h1 span {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(5, 8, 16, 0.75);
+  background: rgba(3, 6, 12, 0.78);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   padding: 24px;
@@ -1570,8 +1606,8 @@ h1 span {
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  background: rgba(0, 212, 170, 0.08);
-  border-bottom: 1px solid rgba(0, 212, 170, 0.15);
+  background: rgba(0, 229, 255, 0.08);
+  border-bottom: 1px solid rgba(0, 229, 255, 0.15);
 }
 
 .modal-bar-title {
@@ -1734,7 +1770,7 @@ body.modal-open {
 
 .cta-menu a:hover,
 .cta-menu a:focus-visible {
-  background: rgba(0, 212, 170, 0.1);
+  background: rgba(0, 229, 255, 0.1);
   color: var(--accent);
   outline: none;
 }
@@ -1879,15 +1915,15 @@ header {
 
 /* ---- Icon variants for the upcoming Experience / Education details ---- */
 .work-icon {
-  background: rgba(129, 140, 248, 0.1);
-  border: 1px solid rgba(129, 140, 248, 0.3);
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
   color: var(--accent3);
 }
 
 .cert-icon {
-  background: rgba(245, 158, 11, 0.1);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  color: var(--accent2);
+  background: rgba(245, 165, 36, 0.1);
+  border: 1px solid rgba(245, 165, 36, 0.3);
+  color: var(--warn);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1922,8 +1958,8 @@ header {
 
 /* Text badges for credentials with no issuer artwork */
 .cert-badge.unam {
-  background: rgba(129, 140, 248, 0.1);
-  border: 1px solid rgba(129, 140, 248, 0.3);
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
   color: var(--accent3);
   font-size: 0.6rem;
   font-weight: 700;
@@ -1933,9 +1969,9 @@ header {
 }
 
 .cert-badge.scrum-badge {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.3);
-  color: var(--green);
+  background: rgba(157, 180, 208, 0.1);
+  border: 1px solid rgba(157, 180, 208, 0.3);
+  color: var(--accent3);
 }
 
 /* A credential card that links out to the issuer for verification */

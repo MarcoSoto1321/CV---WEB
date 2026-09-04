@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/styles.css?v=8" />
+    <link rel="stylesheet" href="css/styles.css?v=9" />
     <script src="https://unpkg.com/lucide@latest"></script>
     <link
       rel="apple-touch-icon"
@@ -279,31 +279,81 @@
             Engineering, UNAM
           </h3>
           <p class="certs-note">
-            University diploma programs and coursework — not Cisco vendor
-            certification exams.
+            University certification courses run by the Telecommunications
+            Department — not Cisco vendor certification exams.
           </p>
           <div class="certs-grid">
-            <div class="cert-card">
-              <div class="cert-badge unam">DIPL</div>
+            <div class="cert-card" data-detail
+                 data-detail-title="~/credentials $ open ccnp-enterprise.webp">
+              <div class="cert-badge unam">120<br />HRS</div>
               <div class="cert-info">
-                <h4>CCNP Enterprise Diploma</h4>
-                <p>ENCOR &amp; ENARSI · 2025</p>
-                <!-- TODO: add diploma preview — see instructions -->
+                <h4>CCNP Enterprise Certification Course</h4>
+                <p>Telecommunications Dept. · Aug 2025 – Jan 2026 · 120 h · GPA 9/10</p>
+                <span class="cert-verify"
+                  >View certificate
+                  <i data-lucide="file-text"></i>
+                </span>
+              </div>
+
+              <template class="detail-content">
+                <div class="detail-head">
+                  <div class="card-icon cert-icon">
+                    <i data-lucide="award"></i>
+                  </div>
+                  <div>
+                    <h3>CCNP Enterprise Certification Course</h3>
+                    <p class="project-subtitle">
+                      Telecommunications Dept., Faculty of Engineering, UNAM
+                    </p>
+                  </div>
+                </div>
+
+                <div class="detail-section">
+                  <img
+                    class="detail-media"
+                    src="assets/certs/ccnp-enterprise.webp"
+                    alt="UNAM certificate of completion for the CCNP Enterprise certification course, 120 hours, awarded to Marco Antonio Soto Rivera"
+                    width="1600"
+                    height="1236"
+                    loading="lazy"
+                  />
+                  <p class="detail-caption">
+                    Signatures blurred to protect the signatories. Document
+                    reference F11-TE-2026-C105-C013.
+                  </p>
+                </div>
+
+                <div class="detail-section">
+                  <h4><i data-lucide="list-checks"></i> What it certifies</h4>
+                  <ul class="detail-list">
+                    <li><strong>Course:</strong> CCNP Enterprise certification track</li>
+                    <li><strong>Duration:</strong> 16 Aug 2025 – 24 Jan 2026, 120 hours</li>
+                    <li><strong>Result:</strong> 9/10 overall average</li>
+                    <li><strong>Issued:</strong> 13 Mar 2026, Ciudad Universitaria</li>
+                  </ul>
+                  <p>
+                    University coursework, not a Cisco vendor certification
+                    exam. No public per-certificate verification page exists for
+                    this course, so the document itself is shown here.
+                  </p>
+                </div>
+              </template>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-badge unam">CURSO</div>
+              <div class="cert-info">
+                <h4>CCNP Security Certification Course</h4>
+                <p>Telecommunications Dept. · completed Jun 2026</p>
+                <span class="cert-pending">Certificate in process</span>
               </div>
             </div>
-            <div class="cert-card">
-              <div class="cert-badge unam">DIPL</div>
-              <div class="cert-info">
-                <h4>CCNP Security Diploma</h4>
-                <p>Jun 2026</p>
-                <span class="cert-pending">Diploma in process</span>
-              </div>
-            </div>
+
             <div class="cert-card">
               <div class="cert-badge unam">CURSO</div>
               <div class="cert-info">
                 <h4>CCNA Certification-Prep Course</h4>
-                <p>2024</p>
+                <p>Faculty of Engineering, UNAM · 2024</p>
               </div>
             </div>
           </div>
@@ -532,7 +582,7 @@
                     Pi-hole with Unbound as a recursive resolver in my home lab
                     — deliberately kept outside the Kubernetes cluster so name
                     resolution survives a cluster failure. The Cisco work builds
-                    on CCNA and CCNP Enterprise training plus hands-on switch
+                    on CCNA and CCNP Enterprise coursework plus hands-on switch
                     configuration during my social service.
                   </p>
                 </div>

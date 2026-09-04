@@ -2051,3 +2051,38 @@ a.cert-card:hover .cert-verify {
   fill: currentColor;
   stroke: none;
 }
+
+/* ========================================
+   CERTIFICATE PREVIEW inside the detail modal
+======================================== */
+.detail-media {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface2);
+}
+
+.detail-caption {
+  margin-top: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Cert cards that open a document rather than linking out */
+.cert-card.has-detail {
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.cert-card.has-detail .cert-verify {
+  color: var(--accent2);
+}
+
+/* Two-line text badge (e.g. "120 HRS") */
+.cert-badge.unam br + *,
+.cert-badge.unam {
+  line-height: 1.1;
+}
